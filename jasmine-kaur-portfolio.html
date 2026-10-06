@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jasmine Kaur — Performance & Digital Marketing</title>
+<style>
+:root{--bg:#faf9f6;--card:#fff;--ink:#1c1c1a;--mut:#6b6a64;--line:#e4e2db;--ac:#0f766e;--acs:#e3f1ef;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--card:#1d1d1b;--ink:#f1f0ea;--mut:#a09f97;--line:#2e2e2b;--ac:#4fd1c5;--acs:#17302d}}
+:root[data-theme="dark"]{--bg:#141413;--card:#1d1d1b;--ink:#f1f0ea;--mut:#a09f97;--line:#2e2e2b;--ac:#4fd1c5;--acs:#17302d}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.15;margin:0 0 .5em;font-weight:600}
+h1{font-size:clamp(2.4rem,7vw,4.2rem)}h2{font-size:clamp(1.7rem,4vw,2.4rem)}h3{font-size:1.15rem}
+p{margin:0 0 1em}.mut{color:var(--mut)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-family:Georgia,serif;font-weight:600;text-decoration:none;color:var(--ink)}
+nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end}
+nav a{padding:5px 9px;border-radius:99px;font-size:.8rem;color:var(--mut);text-decoration:none}
+nav a.on,nav a:hover{background:var(--acs);color:var(--ac)}
+main{max-width:1040px;margin:auto;padding:48px 20px 80px;animation:f .35s ease}
+@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+.eyebrow{color:var(--ac);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;padding:11px 20px;border-radius:99px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:500;background:none;cursor:pointer;font:inherit}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:20px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.tag{display:inline-block;font-size:.7rem;padding:2px 9px;border-radius:99px;background:var(--acs);color:var(--ac);font-weight:600;margin:0 4px 4px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:0 16px}
+summary{cursor:pointer;padding:13px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--ac)}details[open] summary::after{content:"–"}
+details>div{padding-bottom:14px}
+.ph{color:var(--mut);font-style:italic;border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:.9rem}
+.big{font-family:Georgia,serif;font-size:1.5rem}
+.flow{display:flex;flex-direction:column;align-items:stretch;max-width:560px}
+.flow .arr{text-align:center;color:var(--ac);line-height:1}
+.dl{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:.93rem}.dl b{color:var(--ac)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}.gal img{width:100%;border-radius:8px}
+input,textarea{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
+@media print{header,footer,.noprint{display:none}}
+</style></head><body>
+<header><div class="bar"><a class="logo" href="#home">Jasmine Kaur</a><nav id="nav"></nav></div></header>
+<main id="app"></main>
+<footer>Living portfolio — updated as real work and data come in.</footer>
+<script>
+/* ===== EDIT HERE: replace placeholders with real content ===== */
+const DATA={
+ email:"",linkedin:"",instagram:"",website:"",resumeFile:"", // add real links; blank = placeholder shown
+ dash:{Spend:null,Impressions:null,Reach:null,CPM:null,Clicks:null,CTR:null,CPC:null,"Landing Page Views":null,"Cost per LPV":null,"Website Users":null,Engagement:null,"Conversion Rate":null,CPA:null,CAC:null,Revenue:null,ROAS:null},
+ dashOptional:["Conversion Rate","CPA","CAC","Revenue","ROAS"],
+ tools:["Meta Ads Manager","Google Analytics","Search Console","Google Trends","Ubersuggest","Ahrefs","Canva","Google Sheets / Excel","AI tools"], // keep only tools you have really used
+ case:{ // add text, screenshots (<img>), charts per section
+  "Brand Overview":"Adore Tails is a content-first pet-care platform offering practical, trustworthy content for Indian dog parents. The creator-led Instagram layer is Jack Smart Boi."
+ },
+ experiments:[{t:"Creative Test #01",obs:"",ins:"",hyp:"A problem-focused creative may generate stronger engagement and click-through than a general educational creative.",act:"Variables: hook, creative, copy, CTA. Metrics: CTR, CPC, LPV, Cost per LPV, engagement.",res:"",lrn:"",next:""}],
+ projects:[["Adore Tails","Personal Project","Content-led acquisition lab: SEO, Instagram, Meta Ads experiments, tracking."],["Meta Ads sales-campaign practice","Simulation","Practice scenarios; no simulated result is presented as real."],["Zomato marketing case study","Concept","Planned."]]
+};
+/* ============================================================ */
+const PAGES=[["home","Home"],["about","About"],["framework","Framework"],["case","Adore Tails"],["dashboard","Dashboard"],["experiments","Experiments"],["metrics","Metrics"],["evidence","Evidence"],["projects","Projects"],["resume","Resume & Contact"]];
+const PH="Data will be added after campaign launch.";
+const CASE=["Brand Overview","Business/Project Objective","Existing Situation & Baseline","Audience Research","Market Research","Competitor Research","Customer Journey","Funnel","Marketing Strategy","Content Strategy","Creative Strategy","Meta Ads Strategy","SEO Strategy","Website/Landing Page","Tracking Setup","Campaign Setup","Campaign Data","Performance Metrics","Analysis","Optimization Decisions","Experiments","Results","Learnings","Next Steps"];
+const FW=[["Business Objective","What outcome matters, and how will it be measured? For a content brand this is traffic, engagement and audience growth, not forced sales."],["Research","Market, keyword and competitor research to find where the opportunity is."],["Audience","Who they are, what they search for, what problem they want solved."],["Strategy","Channel mix, funnel stages and the hypotheses to test."],["Creative","Hooks, formats and copy built around the audience's problem."],["Distribution","Organic, SEO and paid placements that put the creative in front of the right people."],["Tracking","Pixel, GA4, Search Console and UTMs so every click can be traced."],["Measurement","Pick KPIs that fit the objective; separate metrics from KPIs."],["Analysis","Find where the funnel leaks and why."],["Optimization","Decide what to change, pause, scale or test next."],["Business Outcome","Connect results back to the original objective."]];
+const MET=[["CPM","Cost per 1,000 impressions. Reach efficiency."],["CTR","Clicks ÷ impressions. Does the creative earn attention?"],["CPC","Cost per click."],["CVR","Conversions ÷ visitors."],["CPA","Cost per desired action."],["CPL","Cost per lead."],["CAC","Cost to acquire a paying customer."],["ROAS","Revenue ÷ ad spend."],["LTV","Lifetime value of a customer."],["Engagement Rate","Interactions ÷ reach or followers."],["Landing Page Views","People who actually loaded the page, not just clicked."]];
+const e=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const link=(v,l)=>v?`<a href="${e(v)}" target="_blank" rel="noopener">${e(v)}</a>`:`<span class="ph">${l} — add link</span>`;
+const V={
+home:()=>`<div class="eyebrow">Self-Taught Digital Marketer</div><h1>Jasmine Kaur</h1><h3 class="mut" style="font-family:inherit">Performance Marketing &amp; Digital Marketing</h3><p style="max-width:620px;font-size:1.1rem">I combine research, creative thinking, paid media, SEO and data analysis to build and optimize digital marketing systems, and I learn by running real projects, not just courses.</p><div class="btns"><a class="btn p" href="#case">View My Work</a><a class="btn" href="#about">About Me</a><a class="btn" href="#resume">Contact</a></div>
+<div class="grid" style="margin-top:48px"><a class="card" href="#case" style="text-decoration:none;color:inherit"><b>Flagship project</b><p class="mut">Adore Tails: content-led acquisition for Indian dog parents.</p></a><a class="card" href="#framework" style="text-decoration:none;color:inherit"><b>How I work</b><p class="mut">An 11-stage performance-marketing system.</p></a><a class="card" href="#experiments" style="text-decoration:none;color:inherit"><b>Evidence</b><p class="mut">Experiments, data and what I learned from them.</p></a></div>`,
+about:()=>`<div class="eyebrow">About</div><h2>I want to know why people click, search and convert.</h2><p style="max-width:680px">Self-taught digital marketer and B.Com graduate from Delhi University. I hold the HubSpot Digital Marketing Certification, apply SEO and Meta Ads learning on live projects, and am drawn to consumer behaviour and data-driven decisions. I'm building experience through real projects and experiments, and I document them honestly.</p><h3>Marketing stack</h3><div class="grid">${[["Performance Marketing","Meta Ads, campaign strategy, audience research, creative testing, campaign analysis, optimization"],["SEO","Keyword research, search intent, on-page SEO, Search Console, Analytics, competitor analysis"],["Content","Content strategy, copywriting, social content, creative concepts"],["Analytics & Tracking","GA4, GSC, Meta Pixel, UTM tracking, reporting, dashboards"],["Tools",DATA.tools.join(", ")]].map(x=>`<div class="card"><h3>${x[0]}</h3><p class="mut" style="margin:0">${x[1]}</p></div>`).join("")}</div>`,
+framework:()=>`<div class="eyebrow">Marketing framework</div><h2>Performance marketing is a system, not just running ads.</h2><p class="mut">Tap a stage to expand.</p><div class="flow">${FW.map((f,i)=>`${i?'<div class="arr">↓</div>':''}<details><summary>${i+1}. ${f[0]}</summary><div>${f[1]}</div></details>`).join("")}</div>`,
+case:()=>`<div class="eyebrow">Flagship case study</div><h2>Adore Tails</h2><p style="max-width:680px" class="mut">A content-first pet-care platform, not an ecommerce brand. It works as a marketing laboratory. Each section below is a module: fill it in via <code>DATA.case</code>.</p>${CASE.map((c,i)=>`<details><summary>${i+1}. ${c}</summary><div>${DATA.case[c]?`<p>${e(DATA.case[c])}</p>`:`<div class="ph">Add notes, screenshots, charts and results for this section.</div>`}</div></details>`).join("")}`,
+dashboard:()=>`<div class="eyebrow">Performance dashboard</div><h2>Real numbers only.</h2><p class="mut">Set values in <code>DATA.dash</code>. Conversion, CPA, CAC, revenue and ROAS appear only if they apply to the campaign objective.</p><div class="grid">${Object.entries(DATA.dash).map(([k,v])=>`<div class="card"><div class="mut" style="font-size:.8rem">${k}${DATA.dashOptional.includes(k)?" · if applicable":""}</div>${v==null?`<div class="ph" style="margin-top:6px;font-size:.8rem">${PH}</div>`:`<div class="big">${e(String(v))}</div>`}</div>`).join("")}</div>`,
+experiments:()=>`<div class="eyebrow">Experiments &amp; optimization</div><h2>Observation → Insight → Hypothesis → Action → Result → Learning → Next test</h2>${DATA.experiments.map(x=>`<details open><summary>${x.t}</summary><div class="dl">${[["Observation",x.obs],["Insight",x.ins],["Hypothesis",x.hyp],["Action",x.act],["Result",x.res],["Learning",x.lrn],["Next test",x.next]].map(r=>`<b>${r[0]}</b><span>${r[1]?e(r[1]):'<span class="ph">Placeholder until actual data is entered.</span>'}</span>`).join("")}</div></details>`).join("")}`,
+metrics:()=>`<div class="eyebrow">Metrics knowledge</div><h2>The right KPI depends on the objective.</h2><p class="mut">Not every metric applies to every campaign, and not all apply to Adore Tails.</p><div class="grid">${MET.map(m=>`<div class="card"><h3>${m[0]}</h3><p class="mut" style="margin:0">${m[1]}</p></div>`).join("")}</div>`,
+evidence:()=>`<div class="eyebrow">Portfolio evidence</div><h2>Every item supports a decision.</h2><p class="mut">Add screenshots (Meta Ads, GA, Search Console, creatives, reports). Uploads show for this session only. To keep them, embed the images in the file.</p><input type="file" id="up" accept="image/*" multiple class="noprint"><div class="gal" id="gal" style="margin-top:16px"></div>`,
+projects:()=>`<div class="eyebrow">Other projects</div><h2>Clearly labelled.</h2><div class="grid">${DATA.projects.map(p=>`<div class="card"><span class="tag">${p[1]}</span><h3>${p[0]}</h3><p class="mut" style="margin:0">${p[2]}</p></div>`).join("")}</div><p class="mut">Labels: Real Project · Personal Project · Simulation · Concept. Simulated results are never presented as real.</p>`,
+resume:()=>`<div class="eyebrow">Resume &amp; contact</div><h2>Jasmine Kaur</h2><div class="btns noprint" style="margin:0 0 20px">${DATA.resumeFile?`<a class="btn p" href="${e(DATA.resumeFile)}" download>Download resume</a>`:`<button class="btn p" onclick="print()">Download resume (save as PDF)</button>`}</div><div class="grid"><div class="card"><h3>Education</h3><p class="mut">B.Com, Delhi University</p><h3>Certifications</h3><p class="mut" style="margin:0">HubSpot Digital Marketing Certification; HubSpot inbound marketing training</p></div><div class="card"><h3>Skills</h3><p class="mut" style="margin:0">Performance marketing, Meta Ads, SEO, content strategy, audience research, tracking and analytics</p></div><div class="card"><h3>Projects</h3><p class="mut" style="margin:0">Adore Tails (personal project, content-led acquisition lab)</p></div><div class="card"><h3>Tools</h3><p class="mut" style="margin:0">${DATA.tools.join(", ")}</p></div><div class="card"><h3>Marketing experience</h3><p class="mut" style="margin:0">Self-directed project work. Add internships or client work here when real.</p></div></div><h3>Contact</h3><p>Email: ${DATA.email?`<a href="mailto:${e(DATA.email)}">${e(DATA.email)}</a>`:'<span class="ph">add email</span>'}</p><p>LinkedIn: ${link(DATA.linkedin,"LinkedIn")}</p><p>Instagram / website: ${link(DATA.instagram,"Instagram")} ${link(DATA.website,"Website")}</p>`
+};
+function route(){const k=(location.hash.slice(1)||"home");const p=V[k]?k:"home";
+ document.getElementById("app").innerHTML=V[p]();
+ document.getElementById("nav").innerHTML=PAGES.map(x=>`<a href="#${x[0]}" class="${x[0]==p?"on":""}">${x[1]}</a>`).join("");
+ document.title=(PAGES.find(x=>x[0]==p)[1])+" — Jasmine Kaur";scrollTo(0,0);
+ const u=document.getElementById("up");if(u)u.onchange=ev=>{[...ev.target.files].forEach(f=>{const r=new FileReader();r.onload=()=>{const d=document.createElement("div");d.className="card";d.innerHTML=`<img src="${r.result}" alt=""><input placeholder="Decision or result this supports" style="margin-top:8px">`;document.getElementById("gal").appendChild(d)};r.readAsDataURL(f)})}}
+addEventListener("hashchange",route);route();
+</script></body></html>
