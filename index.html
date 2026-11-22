@@ -6,7 +6,7 @@
 :root{--bg:#faf9f6;--card:#fff;--ink:#1c1c1a;--mut:#6b6a64;--line:#e4e2db;--ac:#0f766e;--acs:#e3f1ef;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--card:#1d1d1b;--ink:#f1f0ea;--mut:#a09f97;--line:#2e2e2b;--ac:#4fd1c5;--acs:#17302d}}
 :root[data-theme="dark"]{--bg:#141413;--card:#1d1d1b;--ink:#f1f0ea;--mut:#a09f97;--line:#2e2e2b;--ac:#4fd1c5;--acs:#17302d}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
 h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.15;margin:0 0 .5em;font-weight:600}
 h1{font-size:clamp(2.4rem,7vw,4.2rem)}h2{font-size:clamp(1.7rem,4vw,2.4rem)}h3{font-size:1.15rem}
@@ -22,7 +22,7 @@ main{max-width:1040px;margin:auto;padding:48px 20px 80px;animation:f .35s ease}
 .eyebrow{color:var(--ac);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .btn{display:inline-block;padding:11px 20px;border-radius:99px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:500;background:none;cursor:pointer;font:inherit}
-.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.evidence{background:#15803d;border-color:#15803d;color:#fff;padding:8px 15px;font-size:.84rem}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.download{background:#15803d;border-color:#15803d;color:#fff}.btn.download:hover{background:#166534;border-color:#166534}.btn.evidence{background:#15803d;border-color:#15803d;color:#fff;padding:8px 15px;font-size:.84rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:20px 0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
 .tag{display:inline-block;font-size:.7rem;padding:2px 9px;border-radius:99px;background:var(--acs);color:var(--ac);font-weight:600;margin:0 4px 4px 0}
@@ -87,7 +87,7 @@ footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
 <script>
 /* ===== EDIT HERE: replace placeholders with real content ===== */
 const DATA={
- email:"",linkedin:"",instagram:"",website:"",resumeFile:"", // add real links; blank = placeholder shown
+ email:"jasminekaur240904@gmail.com",linkedin:"https://www.linkedin.com/in/jasmine-kaur-4a6104400/",resumeFile:"assets/Jasmine_Kaur_Digital_Marketing_Resume.pdf",
  dash:{Spend:null,Impressions:null,Reach:null,CPM:null,Clicks:null,CTR:null,CPC:null,"Landing Page Views":null,"Cost per LPV":null,"Website Users":null,Engagement:null,"Conversion Rate":null,CPA:null,CAC:null,Revenue:null,ROAS:null},
  dashOptional:["Conversion Rate","CPA","CAC","Revenue","ROAS"],
  tools:["Meta Ads Manager","Google Analytics","Search Console","Google Trends","Ubersuggest","Ahrefs","Canva","Google Sheets / Excel","AI tools"], // keep only tools you have really used
@@ -126,7 +126,7 @@ const EVIDENCE_FILES={
 const officeViewer=url=>"https://view.officeapps.live.com/op/view.aspx?src="+encodeURIComponent(url);
 const pdfViewer=url=>"https://docs.google.com/gview?embedded=1&url="+encodeURIComponent(url);
 const V={
-home:()=>`<div class="eyebrow">Self-Taught Digital Marketer</div><h1>Jasmine Kaur</h1><h3 class="mut" style="font-family:inherit">Performance Marketing &amp; Digital Marketing</h3><p style="max-width:620px;font-size:1.1rem">I'm interested in how digital marketing brings together creativity, strategy and data. I enjoy exploring different areas like paid advertising, SEO, content and research, and understanding how they work together to grow a business. I learn best by putting ideas into practice, working on projects and improving along the way.</p><div class="btns"><a class="btn p" href="#projects">View My Work</a><a class="btn" href="#about">About Me</a><a class="btn" href="#resume">Contact</a></div>
+home:()=>`<div class="eyebrow">Self-Taught Digital Marketer</div><h1>Jasmine Kaur</h1><h3 class="mut" style="font-family:inherit">Performance Marketing &amp; Digital Marketing</h3><p style="max-width:620px;font-size:1.1rem">I'm interested in how digital marketing brings together creativity, strategy and data. I enjoy exploring different areas like paid advertising, SEO, content and research, and understanding how they work together to grow a business. I learn best by putting ideas into practice, working on projects and improving along the way.</p><div class="btns"><a class="btn p" href="#projects">View My Work</a><a class="btn" href="#about">About Me</a><a class="btn" href="#contact">Contact</a></div>
 <div class="grid" style="margin-top:48px"><a class="card" href="#framework" style="text-decoration:none;color:inherit"><b>How I work</b><p class="mut">An 11-stage performance-marketing system.</p></a><a class="card" href="#evidence" style="text-decoration:none;color:inherit"><b>Evidence</b><p class="mut">Experiments, data and what I learned from them.</p></a></div>`,
 about:()=>`<div class="eyebrow">About</div><h2>I want to know why people click, search and convert.</h2><p style="max-width:680px">I'm a self-taught digital marketer and B.Com graduate from the University of Delhi. I hold HubSpot certifications in Digital Marketing and Inbound Marketing, which have helped me build a foundation in attracting the right audience, understanding consumer behaviour and creating meaningful connections with customers. I'm also interested in how data and audience insights can help businesses make better marketing decisions.</p><h3>Marketing stack</h3><div class="grid">${[["Paid Media & Campaign Strategy",["Meta Ads & Meta Ads Manager","Meta Business Suite","Campaign planning & audience research"]],["SEO & Content Marketing",["Keyword research, clustering & search intent","Competitor & content gap analysis","On-page SEO & off-page SEO fundamentals","Content strategy, planning & copywriting"]],["Analytics & Tracking",["Google Analytics 4 (GA4)","Google Search Console","Meta Pixel fundamentals"]],["SEO & Research Tools",["Google Autocomplete","Ubersuggest","Google Trends"]],["Productivity & Creative Tools",["Google Sheets & Microsoft Excel","Canva","AI tools for research & drafting"]]].map(x=>`<div class="card"><h3>${x[0]}</h3><ul class="mut" style="margin:0;padding-left:20px">${x[1].map(item=>`<li>${item}</li>`).join("")}</ul></div>`).join("")}</div>`,
 framework:()=>`<div class="eyebrow">Marketing framework</div><h2>Performance marketing is a system, not just running ads.</h2>
@@ -482,7 +482,7 @@ projects:()=>`<div class="eyebrow">Selected work</div>
 <p class="mut" style="font-size:.9rem">A proposed Mother's Day food-discovery campaign for people living away from home. Explores emotional storytelling, meal and offer strategy, commercial feasibility, KPIs and testing ideas.</p>
 <a class="btn p" href="#zomato">Explore Zomato Project</a>
 </div>
-</div>`,resume:()=>`<div class="eyebrow">Resume &amp; contact</div><h2>Jasmine Kaur</h2><div class="btns noprint" style="margin:0 0 20px">${DATA.resumeFile?`<a class="btn p" href="${e(DATA.resumeFile)}" download>Download resume</a>`:`<button class="btn p" onclick="print()">Download resume (save as PDF)</button>`}</div><div class="grid"><div class="card"><h3>Education</h3><p class="mut">B.Com, Delhi University</p></div></div><div class="card"><h3>Skills</h3><p class="mut" style="margin:0">Performance marketing, Meta Ads, SEO, content strategy, audience research, tracking and analytics</p></div><div class="card"><h3>Projects</h3><p class="mut" style="margin:0">Adore Tails (personal project, content-led acquisition lab)</p></div><div class="card"><h3>Tools</h3><p class="mut" style="margin:0">${DATA.tools.join(", ")}</p></div><div class="card"><h3>Marketing experience</h3><p class="mut" style="margin:0">Self-directed project work. Add internships or client work here when real.</p></div></div><h3>Contact</h3><p>Email: ${DATA.email?`<a href="mailto:${e(DATA.email)}">${e(DATA.email)}</a>`:'<span class="ph">add email</span>'}</p><p>LinkedIn: ${link(DATA.linkedin,"LinkedIn")}</p><p>Instagram / website: ${link(DATA.instagram,"Instagram")} ${link(DATA.website,"Website")}</p>`,
+</div>`,resume:()=>`<div class="eyebrow">Resume &amp; contact</div><h2>Jasmine Kaur</h2><p class="mut" style="max-width:680px">View the latest one-page resume or download a copy.</p><div class="btns noprint" style="margin:0 0 20px"><a class="btn download" href="${e(DATA.resumeFile)}" download="Jasmine_Kaur_Digital_Marketing_Resume.pdf">Download Resume</a></div><div class="card" style="padding:0;overflow:hidden;margin:0 0 30px"><iframe src="${e(DATA.resumeFile)}#view=FitH" title="Jasmine Kaur — Digital Marketing Resume" style="display:block;width:100%;height:min(82vh,1000px);border:0;background:#fff" loading="lazy"></iframe></div><section id="contact" style="scroll-margin-top:24px"><h3>Contact</h3><p>Email: <a href="mailto:${e(DATA.email)}">${e(DATA.email)}</a></p><p>LinkedIn: <a href="${e(DATA.linkedin)}" target="_blank" rel="noopener noreferrer">linkedin.com/in/jasmine-kaur-4a6104400</a></p></section>`,
 certifications:()=>`<div class="eyebrow">Professional learning</div>
 <h2>Certifications</h2>
 <p class="mut" style="max-width:700px">Professional certifications completed through HubSpot Academy.</p>
@@ -524,11 +524,11 @@ function openFirstEvidenceFile(targetId){
  const a=document.querySelector("#"+targetId+" .evidence-file-link");if(a)window.open(a.href,"_blank","noopener");
 }
 function showAdoreTab(id){const ids=["ga4-detail","search-detail","pages-detail","country-detail","technical-detail","insights-detail"];if(!ids.includes(id))return;ids.forEach(key=>{const panel=document.getElementById("panel-"+key),tab=document.getElementById("tab-"+key);if(panel){panel.hidden=key!==id;panel.setAttribute("aria-hidden",key!==id?"true":"false");}if(tab){const active=key===id;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",active?"true":"false");tab.tabIndex=active?0:-1;}});}
-function route(){const raw=(location.hash.slice(1)||"home");const k=raw.toLowerCase();const p=V[k]?k:(k==="dashboard"||k==="ga4-overview"?"ga4":"home");
+function route(){const raw=(location.hash.slice(1)||"home");const k=raw.toLowerCase();const p=V[k]?k:(k==="contact"?"resume":(k==="dashboard"||k==="ga4-overview"?"ga4":"home"));
  document.getElementById("app").innerHTML=V[p]();
  if(p==="ga4")showAdoreTab("ga4-detail");
  document.getElementById("nav").innerHTML=PAGES.map(x=>`<a href="#${x[0]}" class="${x[0]==p?"on":""}">${x[1]}</a>`).join("");
- document.title=(PAGES.find(x=>x[0]==p)[1])+" — Jasmine Kaur";scrollTo(0,0);
+ document.title=(PAGES.find(x=>x[0]==p)[1])+" — Jasmine Kaur";if(k==="contact"){document.getElementById("contact")?.scrollIntoView({behavior:"smooth",block:"start"});}else{scrollTo(0,0);}
  const u=document.getElementById("up");if(u)u.onchange=ev=>{[...ev.target.files].forEach(f=>{const r=new FileReader();r.onload=()=>{const d=document.createElement("div");d.className="card";d.innerHTML=`<img src="${r.result}" alt=""><input placeholder="Decision or result this supports" style="margin-top:8px">`;document.getElementById("gal").appendChild(d)};r.readAsDataURL(f)})}}
 addEventListener("hashchange",route);route();
 </script></body></html>
