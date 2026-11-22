@@ -97,7 +97,7 @@ const DATA={
  projects:[["Adore Tails","Personal Project","Content-led acquisition lab: SEO, Instagram, Meta Ads experiments, tracking."],["Meta Ads sales-campaign practice","Simulation","Practice scenarios; no simulated result is presented as real."],["Zomato marketing case study","Concept","Planned."]]
 };
 /* ============================================================ */
-const PAGES=[["home","Home"],["about","About"],["framework","Framework"],["case","Adore Tails"],["ga4","GA4 Dashboard"],["zomato","Zomato"],["evidence","Evidence"],["projects","Projects"],["certifications","Certifications"],["resume","Resume & Contact"]];
+const PAGES=[["home","Home"],["about","About"],["framework","Framework"],["case","Adore Tails"],["ga4","Adore Tails Dashboard"],["zomato","Zomato"],["evidence","Evidence"],["projects","Projects"],["certifications","Certifications"],["resume","Resume & Contact"]];
 const PH="Data will be added after campaign launch.";
 const CASE=["Brand Overview","Business/Project Objective","Existing Situation & Baseline","Audience Research","Market Research","Competitor Research","Customer Journey","Funnel","Marketing Strategy","Content Strategy","Creative Strategy","Meta Ads Strategy","SEO Strategy","Website/Landing Page","Tracking Setup","Campaign Setup","Campaign Data","Performance Metrics","Analysis","Optimization Decisions","Experiments","Results","Learnings","Next Steps"];
 const FW=[["Business Objective","What outcome matters, and how will it be measured? For a content brand this is traffic, engagement and audience growth, not forced sales."],["Research","Market, keyword and competitor research to find where the opportunity is."],["Audience","Who they are, what they search for, what problem they want solved."],["Strategy","Channel mix, funnel stages and the hypotheses to test."],["Creative","Hooks, formats and copy built around the audience's problem."],["Distribution","Organic, SEO and paid placements that put the creative in front of the right people."],["Tracking","Pixel, GA4, Search Console and UTMs so every click can be traced."],["Measurement","Pick KPIs that fit the objective; separate metrics from KPIs."],["Analysis","Find where the funnel leaks and why."],["Optimization","Decide what to change, pause, scale or test next."],["Business Outcome","Connect results back to the original objective."]];
@@ -124,6 +124,7 @@ const EVIDENCE_FILES={
  zomato:"https://raw.githubusercontent.com/jasminekaur240904-gif/portfolio-evidence/main/Zomato%20%E2%80%93%20Ghar%20Jaisa%20Swaad.xlsx"
 };
 const officeViewer=url=>"https://view.officeapps.live.com/op/view.aspx?src="+encodeURIComponent(url);
+const pdfViewer=url=>"https://docs.google.com/gview?embedded=1&url="+encodeURIComponent(url);
 const V={
 home:()=>`<div class="eyebrow">Self-Taught Digital Marketer</div><h1>Jasmine Kaur</h1><h3 class="mut" style="font-family:inherit">Performance Marketing &amp; Digital Marketing</h3><p style="max-width:620px;font-size:1.1rem">I'm interested in how digital marketing brings together creativity, strategy and data. I enjoy exploring different areas like paid advertising, SEO, content and research, and understanding how they work together to grow a business. I learn best by putting ideas into practice, working on projects and improving along the way.</p><div class="btns"><a class="btn p" href="#projects">View My Work</a><a class="btn" href="#about">About Me</a><a class="btn" href="#resume">Contact</a></div>
 <div class="grid" style="margin-top:48px"><a class="card" href="#framework" style="text-decoration:none;color:inherit"><b>How I work</b><p class="mut">An 11-stage performance-marketing system.</p></a><a class="card" href="#evidence" style="text-decoration:none;color:inherit"><b>Evidence</b><p class="mut">Experiments, data and what I learned from them.</p></a></div>`,
@@ -436,9 +437,8 @@ evidence:()=>`<div class="eyebrow">Project evidence library</div>
 <h2>Evidence &amp; Working Files</h2>
 <p class="mut" style="max-width:760px">Supporting documents for selected projects. Open the published files below to view or access the original evidence.</p>
 <div class="evidence-card" id="adore-evidence-card">
-<div class="evidence-heading"><div><span class="tag">01 · SEO &amp; Analytics</span><h3><a class="evidence-title-link" href="${EVIDENCE_FILES.dashboard}" target="_blank" rel="noopener noreferrer">Adore Tails Dashboard Evidence</a></h3><p class="mut">GA4 overview, Search Console performance, top pages, countries, technical SEO and insights.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
-<a class="evidence-open" href="${EVIDENCE_FILES.dashboard}" target="_blank" rel="noopener noreferrer">Open File</a>
-<p class="evidence-file-meta">Adore Tails Analytics &amp; Search Performance Dashboard.pdf</p>
+<div class="evidence-heading"><div><span class="tag">01 · SEO &amp; Analytics</span><h3><a class="evidence-title-link" href="${pdfViewer(EVIDENCE_FILES.dashboard)}" target="_blank" rel="noopener noreferrer">Adore Tails Dashboard Evidence</a></h3><p class="mut">GA4 overview, Search Console performance, top pages, countries, technical SEO and insights.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
+<div class="evidence-open-row"><div><b>Adore Tails Analytics &amp; Search Performance Dashboard</b><p class="evidence-file-meta">PDF · Dashboard evidence</p></div><a class="evidence-open" href="${pdfViewer(EVIDENCE_FILES.dashboard)}" target="_blank" rel="noopener noreferrer">Open File</a><a class="evidence-download" href="${EVIDENCE_FILES.dashboard}" download="Adore-Tails-Analytics-Search-Performance-Dashboard.pdf">Download</a></div>
 <div class="evidence-subsection">
 <h3>Evidence of How I Write a Research Blog</h3>
 <p class="mut">Two SEO research worksheets showing topic research, keyword planning, competitor review and content structure.</p>
@@ -459,7 +459,7 @@ evidence:()=>`<div class="eyebrow">Project evidence library</div>
 <a class="evidence-download" href="${EVIDENCE_FILES.zomato}" target="_blank" rel="noopener noreferrer">Download workbook</a>
 <p class="evidence-file-meta">Zomato – Ghar Jaisa Swaad.xlsx · Independent campaign concept, not an approved or executed Zomato campaign.</p>
 </div>
-<div class="evidence-publishing-note"><b>Accessing the evidence</b><p>Excel workbooks open in Microsoft Office for the web. Use the Download link if you prefer to save a copy. The dashboard PDF opens directly in a new tab.</p></div>` ,
+<div class="evidence-publishing-note"><b>Accessing the evidence</b><p>Use Open File to view the dashboard PDF in an online document viewer. Use Download to save a copy. Excel workbooks open in Microsoft Office for the web and have separate download links.</p></div>` ,
 projects:()=>`<div class="eyebrow">Selected work</div>
 <h2>Selected Digital Marketing Projects</h2>
 <p class="mut" style="max-width:680px">A selection of independent projects across SEO, paid advertising and campaign strategy. Explore each project for the full process, decisions and supporting details.</p>
