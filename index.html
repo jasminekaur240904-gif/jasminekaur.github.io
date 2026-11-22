@@ -456,16 +456,31 @@ projects:()=>`<div class="eyebrow">Selected work</div>
 
 
 const evidenceObjectUrls={};
+const evidenceSelectedFiles={};
 function handleEvidenceFiles(input,targetId,multiple){
  const target=document.getElementById(targetId);if(!target)return;
+ const incoming=Array.from(input.files||[]);
+ if(!incoming.length)return;
+ const current=evidenceSelectedFiles[targetId]||[];
+ const combined=[...current];
+ incoming.forEach(file=>{
+  const duplicate=combined.some(existing=>existing.name===file.name&&existing.size===file.size&&existing.lastModified===file.lastModified);
+  if(!duplicate)combined.push(file);
+ });
+ if(targetId==="adore-worksheet-files"&&combined.length>2){
+  input.value="";
+  target.innerHTML='<p class="evidence-empty">Only two research worksheets can be added. Remove a selected file before adding another.</p>';
+  return;
+ }
+ evidenceSelectedFiles[targetId]=combined;
  (evidenceObjectUrls[targetId]||[]).forEach(url=>URL.revokeObjectURL(url));
  evidenceObjectUrls[targetId]=[];target.innerHTML="";
- const files=Array.from(input.files||[]);if(!files.length){target.innerHTML='<p class="evidence-empty">No files selected.</p>';return;}if(targetId==="adore-worksheet-files"&&files.length>2){input.value="";target.innerHTML='<p class="evidence-empty">Please select a maximum of two research worksheets at a time.</p>';return;}
- files.forEach(file=>{
+ combined.forEach(file=>{
   const url=URL.createObjectURL(file);evidenceObjectUrls[targetId].push(url);
   const a=document.createElement("a");a.className="evidence-file-link";a.href=url;a.target="_blank";a.rel="noopener";a.title="Open "+file.name;
   a.textContent="↗ "+file.name;a.addEventListener("click",ev=>ev.stopPropagation());target.appendChild(a);
  });
+ input.value="";
 }
 function openFirstEvidenceFile(targetId){
  const a=document.querySelector("#"+targetId+" .evidence-file-link");if(a)window.open(a.href,"_blank","noopener");
