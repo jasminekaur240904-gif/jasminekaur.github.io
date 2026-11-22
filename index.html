@@ -41,9 +41,9 @@ footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
 @media print{header,footer,.noprint{display:none}}
 
 .adore-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px;border-bottom:1px solid var(--line);padding-bottom:10px}
-.adore-tab{appearance:none;border:1px solid #b7dfc4;border-radius:999px;background:#e8f5ec;color:#176b3a;padding:9px 15px;font:inherit;font-size:.86rem;font-weight:600;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
-.adore-tab:hover{background:#d1ead9;border-color:#25834b;color:#14532d}
-.adore-tab.active{background:#21834a;border-color:#176b3a;color:#fff;box-shadow:0 2px 7px rgba(22,101,52,.18)}
+.adore-tab{appearance:none;border:1px solid #9acbaa;border-radius:999px;background:#e4f3e8;color:#176b3a;padding:9px 15px;font:inherit;font-size:.86rem;font-weight:650;cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
+.adore-tab:hover,.adore-tab:focus-visible{background:#cce8d4;border-color:#25834b;color:#14532d;outline:2px solid #79b98d;outline-offset:2px}
+.adore-tab.active{background:#16803c;border-color:#11632f;color:#fff;box-shadow:0 2px 8px rgba(22,101,52,.22)}
 .adore-panel[hidden]{display:none!important}
 .adore-panel{animation:f .2s ease}
 </style></head><body>
@@ -415,7 +415,7 @@ evidence:()=>`<div class="eyebrow">Project evidence</div><h2>Adore Tails — Ana
 </div>`,resume:()=>`<div class="eyebrow">Resume &amp; contact</div><h2>Jasmine Kaur</h2><div class="btns noprint" style="margin:0 0 20px">${DATA.resumeFile?`<a class="btn p" href="${e(DATA.resumeFile)}" download>Download resume</a>`:`<button class="btn p" onclick="print()">Download resume (save as PDF)</button>`}</div><div class="grid"><div class="card"><h3>Education</h3><p class="mut">B.Com, Delhi University</p><h3>Certifications</h3><p class="mut" style="margin:0">HubSpot Digital Marketing Certification; HubSpot inbound marketing training</p></div><div class="card"><h3>Skills</h3><p class="mut" style="margin:0">Performance marketing, Meta Ads, SEO, content strategy, audience research, tracking and analytics</p></div><div class="card"><h3>Projects</h3><p class="mut" style="margin:0">Adore Tails (personal project, content-led acquisition lab)</p></div><div class="card"><h3>Tools</h3><p class="mut" style="margin:0">${DATA.tools.join(", ")}</p></div><div class="card"><h3>Marketing experience</h3><p class="mut" style="margin:0">Self-directed project work. Add internships or client work here when real.</p></div></div><h3>Contact</h3><p>Email: ${DATA.email?`<a href="mailto:${e(DATA.email)}">${e(DATA.email)}</a>`:'<span class="ph">add email</span>'}</p><p>LinkedIn: ${link(DATA.linkedin,"LinkedIn")}</p><p>Instagram / website: ${link(DATA.instagram,"Instagram")} ${link(DATA.website,"Website")}</p>`
 };
 
-function showAdoreTab(id){const ids=["ga4-detail","search-detail","pages-detail","country-detail","technical-detail","insights-detail"];if(!ids.includes(id))return;ids.forEach(key=>{const panel=document.getElementById("panel-"+key),tab=document.getElementById("tab-"+key);if(panel){panel.hidden=key!==id;panel.setAttribute("aria-hidden",key!==id?"true":"false");}if(tab){const active=key===id;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",active?"true":"false");}});}
+function showAdoreTab(id){const ids=["ga4-detail","search-detail","pages-detail","country-detail","technical-detail","insights-detail"];if(!ids.includes(id))return;ids.forEach(key=>{const panel=document.getElementById("panel-"+key),tab=document.getElementById("tab-"+key);if(panel){panel.hidden=key!==id;panel.setAttribute("aria-hidden",key!==id?"true":"false");}if(tab){const active=key===id;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",active?"true":"false");tab.tabIndex=active?0:-1;}});}
 function route(){const raw=(location.hash.slice(1)||"home");const k=raw.toLowerCase();const p=V[k]?k:(k==="dashboard"||k==="ga4-overview"?"ga4":"home");
  document.getElementById("app").innerHTML=V[p]();
  if(p==="ga4")showAdoreTab("ga4-detail");
