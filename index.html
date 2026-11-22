@@ -315,61 +315,25 @@ zomato:()=>`<div class="eyebrow">Campaign strategy · Independent simulation</di
 dashboard:()=>`<div class="eyebrow">Performance dashboard</div><h2>Real numbers only.</h2><p class="mut">Set values in <code>DATA.dash</code>. Conversion, CPA, CAC, revenue and ROAS appear only if they apply to the campaign objective.</p><div class="grid">${Object.entries(DATA.dash).map(([k,v])=>`<div class="card"><div class="mut" style="font-size:.8rem">${k}${DATA.dashOptional.includes(k)?" · if applicable":""}</div>${v==null?`<div class="ph" style="margin-top:6px;font-size:.8rem">${PH}</div>`:`<div class="big">${e(String(v))}</div>`}</div>`).join("")}</div>`,
 evidence:()=>``,projects:()=>`<div class="eyebrow">Selected work</div>
 <h2>Selected Digital Marketing Projects</h2>
-<p class="mut" style="max-width:680px">Three independent projects showing my practical work and campaign simulations across SEO, paid ads, and brand concepts. Tap a project heading to explore the work in sequence.</p>
-<div style="max-width:760px;margin-top:22px">
-<div class="flow">
-<details>
-<summary><span><span class="tag">01 · Live Website</span><br>1. Adore Tails</span></summary>
-<div>
-<p class="mut" style="font-size:.9rem">Personal project · SEO &amp; content marketing</p>
-<div class="flow">
-<div class="card"><b style="color:var(--ac)">01 · Project overview</b><p style="margin:5px 0 0">A live dog-care and pet-parenting blog for Indian dog parents, built around practical content on dog care, grooming, nutrition, training and pet parenting.</p><p style="margin:8px 0 0"><a href="https://adore-tails.blogspot.com/" target="_blank" rel="noopener">Visit Adore Tails</a></p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">02 · Research &amp; planning</b><p style="margin:5px 0 0">Keyword research, search-intent checks, audience questions, competitor reviews and content-gap analysis to plan useful blog topics and outlines.</p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">03 · Content &amp; SEO execution</b><p style="margin:5px 0 0">Create and publish practical articles, structure headings, refine titles and meta descriptions, optimise images, and connect related posts with internal links.</p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">04 · Tracking &amp; learning</b><p style="margin:5px 0 0">Use Google Search Console and Google Analytics to monitor search visibility and website activity, then identify opportunities to improve content.</p></div>
+<p class="mut" style="max-width:680px">A selection of independent projects across SEO, paid advertising and campaign strategy. Explore each project for the full process, decisions and supporting details.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:22px">
+<div class="card">
+<span class="tag">01 · SEO &amp; Content Marketing</span>
+<h3 style="margin:12px 0 6px">Adore Tails</h3>
+<p class="mut" style="font-size:.9rem">A live pet-care content project focused on Indian dog parents. Covers audience and keyword research, search-led content planning, on-page SEO and ongoing learning through website analytics.</p>
+<a class="btn p" href="#case">Explore Adore Tails</a>
 </div>
-<p class="mut" style="font-size:.82rem;margin-top:12px">Tools: Blogger, Google Search Console, Google Analytics, Ubersuggest, Google Autocomplete and Ahrefs.</p>
-<a class="btn evidence" href="#evidence">Evidence</a>
+<div class="card">
+<span class="tag">02 · Meta Ads Simulation</span>
+<h3 style="margin:12px 0 6px">Heads Up For Tails (HUFT)</h3>
+<p class="mut" style="font-size:.9rem">An independent performance marketing simulation for a pet-food product. Includes campaign research, audience and funnel planning, creative concepts, budget forecasts and a measurement approach.</p>
+<a class="btn p" href="#framework">Explore HUFT Project</a>
 </div>
-</details>
-<div class="arr">↓</div>
-<details>
-<summary><span><span class="tag">02 · Meta Ads Simulation</span><br>2. Heads Up For Tails (HUFT)</span></summary>
-<div>
-<p class="mut" style="font-size:.9rem">Independent campaign-planning and forecasting simulation · Not a live campaign</p>
-<div class="flow">
-<div class="card"><b style="color:var(--ac)">01 · Project objective</b><p style="margin:5px 0 0">Plan a 14-day Meta Ads sales campaign for Sara's Wholesome Classic Chicken &amp; Brown Rice (100g pouch, ₹95), using a hypothetical ₹15,000 budget.</p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">02 · Research &amp; strategy</b><p style="margin:5px 0 0">Review public brand, product, customer-review and competitor information; define the campaign structure, audience approach and funnel.</p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">03 · Creative development</b><p style="margin:5px 0 0">Prepare three creative storyboards: a static product image, a short picky-eater video concept and a product-information carousel.</p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">04 · Forecast &amp; measurement plan</b><p style="margin:5px 0 0">Build Poor, Expected and Best forecast scenarios, propose a Meta Pixel event map and UTM tracking plan, and identify metrics for evaluation.</p></div>
-<div class="arr">↓</div>
-<div class="card"><b style="color:var(--ac)">05 · Analysis &amp; recommendations</b><p style="margin:5px 0 0">Assess the forecast against the hypothetical budget, identify the expected-case efficiency gap, and recommend areas to test before considering scale.</p></div>
-</div>
-<p class="mut" style="font-size:.82rem;margin-top:12px">Transparency: This is an independent simulation. No live ads were launched and no actual campaign results are claimed.</p>
-<a class="btn evidence" href="#evidence">Evidence</a>
-</div>
-</details>
-<div class="arr">↓</div>
-<details>
-<summary><span><span class="tag">03 · Campaign Simulation</span><br>3. Zomato – Ghar Jaisa Swaad</span></summary>
-<div>
-<p class="mut" style="font-size:.9rem">Independent Mother's Day 2027 campaign simulation · 3–9 May 2027</p>
-<p style="font-size:.93rem">A proposed food-discovery campaign built around the insight that people living away from home may miss familiar meals. The plan brings together emotional storytelling, a curated home-style meal collection, menu and offer strategy, restaurant-side cost modelling, and a measurement framework.</p>
-<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(145px,1fr));margin:12px 0">
-<div class="card"><b style="color:var(--ac)">Audience</b><p style="margin:4px 0 0;font-size:.86rem">Hostel and PG students aged 18–24</p></div>
-<div class="card"><b style="color:var(--ac)">Offer concept</b><p style="margin:4px 0 0;font-size:.86rem">₹40 off above ₹199 · hypothetical</p></div>
-<div class="card"><b style="color:var(--ac)">Planning focus</b><p style="margin:4px 0 0;font-size:.86rem">Strategy, pricing, commercial checks and measurement</p></div>
-</div>
-<p class="mut" style="font-size:.82rem">Independent simulation only. No Zomato partnership, campaign execution or actual results are claimed.</p>
-<div class="btns" style="margin-top:12px"><a class="btn p" href="#zomato">View Detailed Project</a><a class="btn evidence" href="#evidence">Evidence</a></div>
-</div>
-</details>
+<div class="card">
+<span class="tag">03 · Campaign Strategy Simulation</span>
+<h3 style="margin:12px 0 6px">Zomato – Ghar Jaisa Swaad</h3>
+<p class="mut" style="font-size:.9rem">A proposed Mother's Day food-discovery campaign for people living away from home. Explores emotional storytelling, meal and offer strategy, commercial feasibility, KPIs and testing ideas.</p>
+<a class="btn p" href="#zomato">Explore Zomato Project</a>
 </div>
 </div>`,resume:()=>`<div class="eyebrow">Resume &amp; contact</div><h2>Jasmine Kaur</h2><div class="btns noprint" style="margin:0 0 20px">${DATA.resumeFile?`<a class="btn p" href="${e(DATA.resumeFile)}" download>Download resume</a>`:`<button class="btn p" onclick="print()">Download resume (save as PDF)</button>`}</div><div class="grid"><div class="card"><h3>Education</h3><p class="mut">B.Com, Delhi University</p><h3>Certifications</h3><p class="mut" style="margin:0">HubSpot Digital Marketing Certification; HubSpot inbound marketing training</p></div><div class="card"><h3>Skills</h3><p class="mut" style="margin:0">Performance marketing, Meta Ads, SEO, content strategy, audience research, tracking and analytics</p></div><div class="card"><h3>Projects</h3><p class="mut" style="margin:0">Adore Tails (personal project, content-led acquisition lab)</p></div><div class="card"><h3>Tools</h3><p class="mut" style="margin:0">${DATA.tools.join(", ")}</p></div><div class="card"><h3>Marketing experience</h3><p class="mut" style="margin:0">Self-directed project work. Add internships or client work here when real.</p></div></div><h3>Contact</h3><p>Email: ${DATA.email?`<a href="mailto:${e(DATA.email)}">${e(DATA.email)}</a>`:'<span class="ph">add email</span>'}</p><p>LinkedIn: ${link(DATA.linkedin,"LinkedIn")}</p><p>Instagram / website: ${link(DATA.instagram,"Instagram")} ${link(DATA.website,"Website")}</p>`
 };
