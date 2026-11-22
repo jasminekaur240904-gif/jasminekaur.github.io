@@ -43,7 +43,7 @@ footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
 .adore-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px;border-bottom:1px solid var(--line);padding-bottom:10px}
 .adore-tab{appearance:none;border:1px solid #9acbaa;border-radius:999px;background:#e4f3e8;color:#176b3a;padding:9px 15px;font:inherit;font-size:.86rem;font-weight:650;cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
 .adore-tab:hover,.adore-tab:focus-visible{background:#cce8d4;border-color:#25834b;color:#14532d;outline:2px solid #79b98d;outline-offset:2px}
-.adore-tab.active{background:#16803c;border-color:#11632f;color:#fff;box-shadow:0 2px 8px rgba(22,101,52,.22)}
+.adore-tab.active{background:#059669;border-color:#047857;color:#fff;box-shadow:0 2px 8px rgba(5,150,105,.22)}
 .adore-panel[hidden]{display:none!important}
 .adore-panel{animation:f .2s ease}
 .evidence-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 5px 20px rgba(0,0,0,.035);transition:border-color .18s,box-shadow .18s}
@@ -460,7 +460,7 @@ function handleEvidenceFiles(input,targetId,multiple){
  const target=document.getElementById(targetId);if(!target)return;
  (evidenceObjectUrls[targetId]||[]).forEach(url=>URL.revokeObjectURL(url));
  evidenceObjectUrls[targetId]=[];target.innerHTML="";
- const files=Array.from(input.files||[]);if(!files.length){target.innerHTML='<p class="evidence-empty">No files selected.</p>';return;}
+ const files=Array.from(input.files||[]);if(!files.length){target.innerHTML='<p class="evidence-empty">No files selected.</p>';return;}if(targetId==="adore-worksheet-files"&&files.length>2){input.value="";target.innerHTML='<p class="evidence-empty">Please select a maximum of two research worksheets at a time.</p>';return;}
  files.forEach(file=>{
   const url=URL.createObjectURL(file);evidenceObjectUrls[targetId].push(url);
   const a=document.createElement("a");a.className="evidence-file-link";a.href=url;a.target="_blank";a.rel="noopener";a.title="Open "+file.name;
