@@ -51,8 +51,22 @@ footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
 .evidence-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
 .evidence-heading h3{margin:10px 0 6px}.evidence-heading p{font-size:.9rem;margin:0}
 .folder-mark{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:12px;background:#e7f8ef;color:#059669;font-size:1.35rem}
-.evidence-upload{display:inline-flex;align-items:center;justify-content:center;margin-top:15px;padding:9px 17px;border-radius:999px;background:#059669;border:1px solid #059669;color:#fff;font-size:.88rem;font-weight:700;cursor:pointer;transition:background .15s,transform .15s}
-.evidence-upload:hover{background:#047857;border-color:#047857;transform:translateY(-1px)}
+.evidence-open{display:inline-flex;align-items:center;justify-content:center;margin-top:15px;padding:9px 17px;border-radius:999px;background:#10B981;border:1px solid #10B981;color:#fff;font-size:.88rem;font-weight:700;text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}
+.evidence-open:hover,.evidence-open:focus-visible{background:#059669;border-color:#059669;transform:translateY(-1px);outline:2px solid #a7f3d0;outline-offset:2px}
+.evidence-open-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px;padding:12px 0;border-top:1px solid var(--line)}
+.evidence-open-row>div{flex:1 1 220px}
+.evidence-open-row b{font-size:.9rem}
+.evidence-download{display:inline-flex;align-items:center;justify-content:center;margin-top:15px;padding:8px 13px;border:1px solid #a7e5c4;border-radius:999px;background:#ecfdf3;color:#047857;text-decoration:none;font-size:.82rem;font-weight:650}
+.evidence-download:hover{background:#d1fae5;border-color:#059669}
+.evidence-title-link{color:inherit;text-decoration:none}
+.evidence-title-link:hover{color:#059669;text-decoration:underline;text-underline-offset:3px}
+.evidence-file-meta{margin:5px 0 0;color:var(--mut);font-size:.78rem;overflow-wrap:anywhere}
+.evidence-subsection{margin-top:24px;padding:20px 0 2px 18px;border-top:1px solid var(--line);border-left:3px solid #10b981}
+.evidence-subsection h3{margin:0 0 6px}.evidence-subsection p{font-size:.88rem}
+.evidence-note,.evidence-publishing-note{color:var(--mut);font-size:.82rem;margin:18px 0 0}
+.evidence-publishing-note{padding:15px 18px;border-radius:12px;background:var(--acs);border:1px solid #b7e4ca}
+.evidence-publishing-note p{margin:4px 0 0}
+@media(max-width:600px){.evidence-card{padding:17px}.evidence-heading{gap:8px}.folder-mark{flex-basis:36px;height:36px}.evidence-open-row{align-items:flex-start}}
 .evidence-input{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;clip-path:inset(50%)!important}
 .evidence-files{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
 .evidence-file-link{display:inline-flex;align-items:center;gap:8px;max-width:100%;padding:8px 13px;border:1px solid #a7e5c4;border-radius:999px;background:#ecfdf3;color:#047857;text-decoration:none;font-size:.84rem;font-weight:650;overflow-wrap:anywhere}
@@ -102,6 +116,14 @@ const HUFT_STAGES=[
 ];
 const e=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 const link=(v,l)=>v?`<a href="${e(v)}" target="_blank" rel="noopener">${e(v)}</a>`:`<span class="ph">${l} — add link</span>`;
+const EVIDENCE_FILES={
+ dashboard:"https://raw.githubusercontent.com/jasminekaur240904-gif/jasminekaur.github.io/main/assets/dashboard/Adore%20Tails%20Analytics%20%26%20Search%20Performance%20Dashboard.pdf",
+ deafDog:"https://raw.githubusercontent.com/jasminekaur240904-gif/portfolio-evidence/main/how%20to%20train%20a%20deaf%20dog.xlsx",
+ dogFood:"https://raw.githubusercontent.com/jasminekaur240904-gif/portfolio-evidence/main/Dog_Food_Transition_Blog_SEO_Research.xlsx",
+ huft:"https://raw.githubusercontent.com/jasminekaur240904-gif/portfolio-evidence/main/HUFT_Performance%20Marketing%20Project.xlsx",
+ zomato:"https://raw.githubusercontent.com/jasminekaur240904-gif/portfolio-evidence/main/Zomato%20%E2%80%93%20Ghar%20Jaisa%20Swaad.xlsx"
+};
+const officeViewer=url=>"https://view.officeapps.live.com/op/view.aspx?src="+encodeURIComponent(url);
 const V={
 home:()=>`<div class="eyebrow">Self-Taught Digital Marketer</div><h1>Jasmine Kaur</h1><h3 class="mut" style="font-family:inherit">Performance Marketing &amp; Digital Marketing</h3><p style="max-width:620px;font-size:1.1rem">I'm interested in how digital marketing brings together creativity, strategy and data. I enjoy exploring different areas like paid advertising, SEO, content and research, and understanding how they work together to grow a business. I learn best by putting ideas into practice, working on projects and improving along the way.</p><div class="btns"><a class="btn p" href="#projects">View My Work</a><a class="btn" href="#about">About Me</a><a class="btn" href="#resume">Contact</a></div>
 <div class="grid" style="margin-top:48px"><a class="card" href="#framework" style="text-decoration:none;color:inherit"><b>How I work</b><p class="mut">An 11-stage performance-marketing system.</p></a><a class="card" href="#evidence" style="text-decoration:none;color:inherit"><b>Evidence</b><p class="mut">Experiments, data and what I learned from them.</p></a></div>`,
@@ -412,23 +434,32 @@ dashboard:()=>`<div class="eyebrow">Adore Tails · Analytics &amp; SEO</div>
 ga4:()=>V.dashboard(),
 evidence:()=>`<div class="eyebrow">Project evidence library</div>
 <h2>Evidence &amp; Working Files</h2>
-<p class="mut" style="max-width:760px">Supporting documents for selected projects. Choose a file to preview it in this browser, or open a published evidence link when one is available.</p>
+<p class="mut" style="max-width:760px">Supporting documents for selected projects. Open the published files below to view or access the original evidence.</p>
 <div class="evidence-card" id="adore-evidence-card">
-<div class="evidence-heading"><div><span class="tag">01 · SEO &amp; Analytics</span><h3>Adore Tails Dashboard Evidence</h3><p class="mut">GA4 overview, Search Console performance, top pages, countries, technical SEO and insights.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
-<label class="evidence-upload" for="adore-pdf">Choose File</label><input class="evidence-input" id="adore-pdf" type="file" accept=".pdf,application/pdf" onchange="handleEvidenceFiles(this,'adore-files',false)">
-<div class="evidence-files" id="adore-files"><p class="evidence-empty">No dashboard PDF selected yet.</p></div>
-<div class="evidence-subsection"><h3>Evidence of How I Write a Research Blog</h3><p class="mut">Add your two research worksheets separately using the two upload slots.</p>
-<div class="evidence-upload-row"><label class="evidence-upload" for="adore-worksheet-one">Choose First Worksheet</label><input class="evidence-input" id="adore-worksheet-one" type="file" accept=".xlsx,.xls,.xlsm,.ods,.csv,.pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.oasis.opendocument.spreadsheet,application/pdf,text/csv" onchange="handleEvidenceFiles(this,'adore-worksheet-one-file',false)"><div class="evidence-files" id="adore-worksheet-one-file"><p class="evidence-empty">First worksheet not added.</p></div></div>
-<div class="evidence-upload-row"><label class="evidence-upload" for="adore-worksheet-two">Choose Second Worksheet</label><input class="evidence-input" id="adore-worksheet-two" type="file" accept=".xlsx,.xls,.xlsm,.ods,.csv,.pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.oasis.opendocument.spreadsheet,application/pdf,text/csv" onchange="handleEvidenceFiles(this,'adore-worksheet-two-file',false)"><div class="evidence-files" id="adore-worksheet-two-file"><p class="evidence-empty">Second worksheet not added.</p></div></div></div>
-<p class="evidence-note">Adore Tails evidence collection ends here. The projects below are separate portfolio folders.</p></div>
-<div class="evidence-card" id="huft-evidence-card"><div class="evidence-heading"><div><span class="tag">02 · Performance Marketing Simulation</span><h3>HUFT Project Evidence</h3><p class="mut">Research findings, workbook, campaign plan, creative storyboards and forecast materials.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
-<label class="evidence-upload" for="huft-files">Choose Files</label><input class="evidence-input" id="huft-files" type="file" multiple accept=".xlsx,.xls,.xlsm,.ods,.csv,.pdf,.pptx,.docx,.png,.jpg,.jpeg,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.oasis.opendocument.spreadsheet,application/pdf,text/csv" onchange="handleEvidenceFiles(this,'huft-file-list',true)">
-<div class="evidence-files" id="huft-file-list"><p class="evidence-empty">No HUFT files selected yet.</p></div></div>
-<div class="evidence-card zomato-evidence" id="zomato-evidence-card" onclick="openFirstEvidenceFile('zomato-file-list')" role="group" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openFirstEvidenceFile('zomato-file-list')}">
-<div class="evidence-heading"><div><span class="tag">03 · Campaign Strategy Concept</span><h3>Zomato Campaign Project Evidence</h3><p class="mut">Campaign concept, creative assets, planning documents and supporting evidence.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
-<label class="evidence-upload" for="zomato-file" onclick="event.stopPropagation()">Choose File (Excel, PDF or other evidence)</label><input class="evidence-input" id="zomato-file" type="file" accept=".xlsx,.xls,.xlsm,.ods,.csv,.pdf,.pptx,.docx,.png,.jpg,.jpeg,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.oasis.opendocument.spreadsheet,application/pdf,text/csv" onclick="event.stopPropagation()" onchange="event.stopPropagation();handleEvidenceFiles(this,'zomato-file-list',false)">
-<div class="evidence-files" id="zomato-file-list"><p class="evidence-empty">Choose a campaign evidence file. Once selected, click the Zomato card or file badge to open it.</p></div></div>
-<div class="evidence-publishing-note"><b>Publishing note</b><p>Files selected with these buttons are previewable in the current browser session only. To make evidence available to recruiters and other visitors, add the final files to the website repository and publish their links. Selecting a local file here does not upload it to GitHub.</p></div>`,
+<div class="evidence-heading"><div><span class="tag">01 · SEO &amp; Analytics</span><h3><a class="evidence-title-link" href="${EVIDENCE_FILES.dashboard}" target="_blank" rel="noopener noreferrer">Adore Tails Dashboard Evidence</a></h3><p class="mut">GA4 overview, Search Console performance, top pages, countries, technical SEO and insights.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
+<a class="evidence-open" href="${EVIDENCE_FILES.dashboard}" target="_blank" rel="noopener noreferrer">Open File</a>
+<p class="evidence-file-meta">Adore Tails Analytics &amp; Search Performance Dashboard.pdf</p>
+<div class="evidence-subsection">
+<h3>Evidence of How I Write a Research Blog</h3>
+<p class="mut">Two SEO research worksheets showing topic research, keyword planning, competitor review and content structure.</p>
+<div class="evidence-open-row"><div><b>How to Train a Deaf Dog</b><p class="evidence-file-meta">how to train a deaf dog.xlsx</p></div><a class="evidence-open" href="${officeViewer(EVIDENCE_FILES.deafDog)}" target="_blank" rel="noopener noreferrer">Open File</a><a class="evidence-download" href="${EVIDENCE_FILES.deafDog}" target="_blank" rel="noopener noreferrer">Download</a></div>
+<div class="evidence-open-row"><div><b>Dog Food Transition Blog</b><p class="evidence-file-meta">Dog_Food_Transition_Blog_SEO_Research.xlsx</p></div><a class="evidence-open" href="${officeViewer(EVIDENCE_FILES.dogFood)}" target="_blank" rel="noopener noreferrer">Open File</a><a class="evidence-download" href="${EVIDENCE_FILES.dogFood}" target="_blank" rel="noopener noreferrer">Download</a></div>
+</div>
+<p class="evidence-note">The two research workbooks are separate files so visitors can open the evidence relevant to each blog topic.</p>
+</div>
+<div class="evidence-card" id="huft-evidence-card">
+<div class="evidence-heading"><div><span class="tag">02 · Performance Marketing Simulation</span><h3><a class="evidence-title-link" href="${officeViewer(EVIDENCE_FILES.huft)}" target="_blank" rel="noopener noreferrer">HUFT Project Evidence</a></h3><p class="mut">Research findings, campaign plan, creative storyboards, budget forecasts and measurement approach.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
+<a class="evidence-open" href="${officeViewer(EVIDENCE_FILES.huft)}" target="_blank" rel="noopener noreferrer">Open File</a>
+<a class="evidence-download" href="${EVIDENCE_FILES.huft}" target="_blank" rel="noopener noreferrer">Download workbook</a>
+<p class="evidence-file-meta">HUFT_Performance Marketing Project.xlsx · Independent simulation, not a live campaign.</p>
+</div>
+<div class="evidence-card" id="zomato-evidence-card">
+<div class="evidence-heading"><div><span class="tag">03 · Campaign Strategy Simulation</span><h3><a class="evidence-title-link" href="${officeViewer(EVIDENCE_FILES.zomato)}" target="_blank" rel="noopener noreferrer">Zomato Campaign Project Evidence</a></h3><p class="mut">Campaign concept, creative planning, offer strategy, commercial assumptions and KPIs.</p></div><span class="folder-mark" aria-hidden="true">▰</span></div>
+<a class="evidence-open" href="${officeViewer(EVIDENCE_FILES.zomato)}" target="_blank" rel="noopener noreferrer">Open File</a>
+<a class="evidence-download" href="${EVIDENCE_FILES.zomato}" target="_blank" rel="noopener noreferrer">Download workbook</a>
+<p class="evidence-file-meta">Zomato – Ghar Jaisa Swaad.xlsx · Independent campaign concept, not an approved or executed Zomato campaign.</p>
+</div>
+<div class="evidence-publishing-note"><b>Accessing the evidence</b><p>Excel workbooks open in Microsoft Office for the web. Use the Download link if you prefer to save a copy. The dashboard PDF opens directly in a new tab.</p></div>` ,
 projects:()=>`<div class="eyebrow">Selected work</div>
 <h2>Selected Digital Marketing Projects</h2>
 <p class="mut" style="max-width:680px">A selection of independent projects across SEO, paid advertising and campaign strategy. Explore each project for the full process, decisions and supporting details.</p>
