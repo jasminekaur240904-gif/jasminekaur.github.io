@@ -312,7 +312,102 @@ zomato:()=>`<div class="eyebrow">Campaign strategy · Independent simulation</di
 </div></details>
 </div>
 <div class="btns"><a class="btn" href="#projects">Back to selected projects</a><a class="btn evidence" href="#evidence">Evidence</a></div>` ,
-dashboard:()=>`<div class="eyebrow">Performance dashboard</div><h2>Real numbers only.</h2><p class="mut">Set values in <code>DATA.dash</code>. Conversion, CPA, CAC, revenue and ROAS appear only if they apply to the campaign objective.</p><div class="grid">${Object.entries(DATA.dash).map(([k,v])=>`<div class="card"><div class="mut" style="font-size:.8rem">${k}${DATA.dashOptional.includes(k)?" · if applicable":""}</div>${v==null?`<div class="ph" style="margin-top:6px;font-size:.8rem">${PH}</div>`:`<div class="big">${e(String(v))}</div>`}</div>`).join("")}</div>`,
+dashboard:()=>`<div class="eyebrow">Adore Tails · Analytics &amp; SEO</div>
+<h2>Website &amp; Search Performance Dashboard</h2>
+<p class="mut" style="max-width:760px">A snapshot of website engagement and organic search visibility for Adore Tails, using Google Analytics 4 and Google Search Console evidence captured on 22 November 2026.</p>
+<div class="card" style="margin:18px 0;padding:14px 18px;max-width:820px">
+<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+<div><b>Reporting periods</b><div class="mut" style="font-size:.86rem">GA4: 1 Jan–22 Nov 2026 · Search Console: six-month view</div></div>
+<span class="tag">Evidence snapshot · 22 Nov 2026</span>
+</div>
+<p class="mut" style="font-size:.82rem;margin:8px 0 0">This is an organic website and SEO reporting dashboard—not a paid advertising campaign report. Metrics are reproduced from the supplied GA4 and Search Console screenshots.</p>
+</div>
+<h3>At a glance</h3>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(145px,1fr));max-width:900px">
+<div class="card"><div class="eyebrow">GA4 · Active users</div><div class="big">55</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">All users</p></div>
+<div class="card"><div class="eyebrow">GA4 · New users</div><div class="big">56</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">All users</p></div>
+<div class="card"><div class="eyebrow">GA4 · Engagement</div><div class="big">1m 58s</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">Average engagement time</p></div>
+<div class="card"><div class="eyebrow">GA4 · Events</div><div class="big">848</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">Total event count</p></div>
+<div class="card"><div class="eyebrow">GSC · Clicks</div><div class="big">25</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">Organic web clicks</p></div>
+<div class="card"><div class="eyebrow">GSC · Impressions</div><div class="big">1.67k</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">Search impressions</p></div>
+<div class="card"><div class="eyebrow">GSC · Average CTR</div><div class="big">1.5%</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">Click-through rate</p></div>
+<div class="card"><div class="eyebrow">GSC · Avg. position</div><div class="big">65.7</div><p class="mut" style="font-size:.8rem;margin:4px 0 0">Average search position</p></div>
+</div>
+<h3>Explore the dashboard</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">
+<a class="btn" href="#ga4-detail">GA4 overview</a><a class="btn" href="#search-detail">Search performance</a><a class="btn" href="#pages-detail">Top pages</a><a class="btn" href="#country-detail">Countries</a><a class="btn" href="#technical-detail">Technical SEO</a><a class="btn" href="#insights-detail">Insights</a>
+</div>
+<details id="ga4-detail" open><summary>01 · Google Analytics 4 — Website engagement</summary><div>
+<p class="mut" style="font-size:.86rem">Period: 1 January–22 November 2026 · Source: GA4 Reports Snapshot screenshot.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(145px,1fr))">
+<div class="card"><div class="mut" style="font-size:.8rem">Organic active users</div><div class="big">45</div></div>
+<div class="card"><div class="mut" style="font-size:.8rem">Direct active users</div><div class="big">13</div></div>
+<div class="card"><div class="mut" style="font-size:.8rem">Organic new users</div><div class="big">43</div></div>
+<div class="card"><div class="mut" style="font-size:.8rem">Direct new users</div><div class="big">13</div></div>
+<div class="card"><div class="mut" style="font-size:.8rem">Organic avg. engagement</div><div class="big">1m 21s</div></div>
+<div class="card"><div class="mut" style="font-size:.8rem">Direct avg. engagement</div><div class="big">3m 00s</div></div>
+</div>
+<p style="font-size:.9rem"><b>Observed:</b> GA4 reports 55 active users, 56 new users, 1m 58s average engagement time and 848 events. The screenshot also shows 45 organic and 13 direct active users, plus 632 organic and 175 direct events.</p>
+<p class="mut" style="font-size:.82rem">Channel-level values are reproduced as shown in the screenshot. They are not added together to recalculate the all-users totals.</p>
+</div></details>
+<details id="search-detail" open><summary>02 · Google Search Console — Organic search performance</summary><div>
+<p class="mut" style="font-size:.86rem">Period: six-month view · Search type: Web · Captured 22 November 2026.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+<div class="card"><div class="eyebrow">Total clicks</div><div class="big">25</div></div><div class="card"><div class="eyebrow">Total impressions</div><div class="big">1,670</div></div><div class="card"><div class="eyebrow">Average CTR</div><div class="big">1.5%</div></div><div class="card"><div class="eyebrow">Average position</div><div class="big">65.7</div></div>
+</div>
+<div class="card" style="max-width:760px">
+<b>Search visibility vs. visits</b>
+<div style="display:grid;grid-template-columns:100px 1fr 55px;gap:9px;align-items:center;margin-top:14px;font-size:.84rem"><span>Impressions</span><div style="height:13px;background:var(--acs);border-radius:20px;overflow:hidden"><div style="width:100%;height:100%;background:var(--ac)"></div></div><b>1.67k</b></div>
+<div style="display:grid;grid-template-columns:100px 1fr 55px;gap:9px;align-items:center;margin-top:12px;font-size:.84rem"><span>Clicks</span><div style="height:13px;background:var(--acs);border-radius:20px;overflow:hidden"><div style="width:3%;min-width:8px;height:100%;background:var(--ac)"></div></div><b>25</b></div>
+<p class="mut" style="font-size:.78rem;margin:12px 0 0">Bars use a common visual scale only to show the difference in magnitude; they are not a time-series chart.</p>
+</div>
+<p style="font-size:.9rem;margin-top:12px"><b>Interpretation:</b> Search results displayed the site in response to queries, but only a small share of impressions resulted in clicks. The average position of 65.7 indicates that visibility was generally outside the top search results.</p>
+</div></details>
+<details id="pages-detail"><summary>03 · Top pages — Search Console</summary><div>
+<p class="mut" style="font-size:.86rem">Selected page-level observations from the six-month Performance report.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.86rem;text-align:left"><thead><tr><th style="padding:8px;border-bottom:1px solid var(--line)">Page</th><th style="padding:8px;border-bottom:1px solid var(--line)">Clicks</th><th style="padding:8px;border-bottom:1px solid var(--line)">Impressions</th></tr></thead><tbody>
+<tr><td style="padding:8px;border-bottom:1px solid var(--line)">About Us (combined URLs)</td><td style="padding:8px;border-bottom:1px solid var(--line)">12</td><td style="padding:8px;border-bottom:1px solid var(--line)">31</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--line)">No AC? Simple Ways to Keep Your Dog Cool (combined URLs)</td><td style="padding:8px;border-bottom:1px solid var(--line)">4</td><td style="padding:8px;border-bottom:1px solid var(--line)">1,584</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid var(--line)">Disclaimer</td><td style="padding:8px;border-bottom:1px solid var(--line)">3</td><td style="padding:8px;border-bottom:1px solid var(--line)">27</td></tr>
+<tr><td style="padding:8px">Privacy Policy</td><td style="padding:8px">2</td><td style="padding:8px">10</td></tr>
+</tbody></table></div>
+<p class="mut" style="font-size:.8rem;margin-top:10px">The first two rows combine repeated URL variants visible in the source table. The remaining figures are selected rows, not a complete export of all pages.</p>
+<p style="font-size:.9rem"><b>Interpretation:</b> The dog-cooling guide has the largest visible impression count among the highlighted content pages, while About Us accounts for the largest combined click count in the supplied summary. This suggests an opportunity to improve the search snippet and on-page usefulness of high-visibility informational content.</p>
+</div></details>
+<details id="country-detail"><summary>04 · Audience geography — Search Console countries</summary><div>
+<p class="mut" style="font-size:.86rem">Six-month country breakdown from the supplied Search Console screenshot.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+<div class="card"><div class="eyebrow">India</div><div class="big">24 clicks</div><p class="mut" style="font-size:.82rem;margin:4px 0 0">84 impressions</p></div>
+<div class="card"><div class="eyebrow">United States</div><div class="big">1 click</div><p class="mut" style="font-size:.82rem;margin:4px 0 0">1,561 impressions</p></div>
+<div class="card"><div class="eyebrow">United Kingdom</div><div class="big">0 clicks</div><p class="mut" style="font-size:.82rem;margin:4px 0 0">7 impressions</p></div>
+</div>
+<p style="font-size:.9rem"><b>Interpretation:</b> India generated most of the clicks shown in the country table. The United States generated substantially more impressions but only one click, making its search visibility a useful area to investigate rather than evidence of a strong audience segment.</p>
+</div></details>
+<details id="technical-detail"><summary>05 · Technical SEO — Sitemap status</summary><div>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+<div class="card"><div class="eyebrow">Sitemap</div><div class="big">/sitemap.xml</div></div><div class="card"><div class="eyebrow">Status</div><div class="big">Success</div></div><div class="card"><div class="eyebrow">Submitted</div><div class="big">5 Jul 2026</div></div><div class="card"><div class="eyebrow">Last read</div><div class="big">12 Nov 2026</div></div><div class="card"><div class="eyebrow">Discovered pages</div><div class="big">4</div></div>
+</div>
+<p style="font-size:.9rem"><b>Observed:</b> Search Console shows the XML sitemap as successfully processed, with four discovered pages. Sitemap success confirms that Google processed the submitted sitemap; it does not mean every page is indexed or ranking.</p>
+</div></details>
+<details id="insights-detail" open><summary>06 · What the data suggests — Insights &amp; next steps</summary><div>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(205px,1fr))">
+<div class="card"><b style="color:var(--ac)">1. Improve high-impression content</b><p style="font-size:.88rem;margin:7px 0 0">Review the title, meta description and search intent match for the dog-cooling guide, which accounts for 1,584 combined impressions in the supplied page summary.</p></div>
+<div class="card"><b style="color:var(--ac)">2. Strengthen relevant internal links</b><p style="font-size:.88rem;margin:7px 0 0">Connect informational dog-care articles to related care, nutrition and training guides where the link genuinely helps readers.</p></div>
+<div class="card"><b style="color:var(--ac)">3. Review indexing coverage</b><p style="font-size:.88rem;margin:7px 0 0">Compare the four discovered sitemap pages with the intended published URLs and inspect indexing status page by page.</p></div>
+<div class="card"><b style="color:var(--ac)">4. Monitor click-through rate</b><p style="font-size:.88rem;margin:7px 0 0">Track CTR and average position for priority queries and pages after making snippet or content improvements.</p></div>
+</div>
+<p class="mut" style="font-size:.82rem">These are recommendations based on the snapshot, not changes already implemented or results already achieved.</p>
+</div></details>
+<div class="card" style="max-width:820px;margin-top:18px">
+<h3>Measurement notes &amp; evidence</h3>
+<ul style="font-size:.88rem;padding-left:20px;margin-bottom:10px">
+<li>GA4 and Search Console are separate platforms with different measurement definitions and reporting periods.</li>
+<li>GA4 figures are from 1 January–22 November 2026; Search Console figures are from the six-month view captured on 22 November 2026.</li>
+<li>Search Console average position is an aggregate metric; it does not mean every query ranked at position 65.7.</li>
+<li>Country and page figures are selected observations from the supplied screenshots; they are not a complete raw-data export.</li>
+</ul>
+<p class="mut" style="font-size:.84rem;margin:0">Primary evidence: the five original GA4 and Search Console screenshots supplied in “Adore Tails Analytics &amp; Search Performance Dashboard” (captured 22 November 2026). Screenshot files are not yet embedded in this live page; the dashboard figures above are transcribed from those source images.</p>
+</div>` ,
 evidence:()=>``,projects:()=>`<div class="eyebrow">Selected work</div>
 <h2>Selected Digital Marketing Projects</h2>
 <p class="mut" style="max-width:680px">A selection of independent projects across SEO, paid advertising and campaign strategy. Explore each project for the full process, decisions and supporting details.</p>
