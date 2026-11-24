@@ -164,7 +164,7 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     </div>
   </div>
   <h3>Different subjects. Clear ways to learn.</h3>
-  <button class="map-center" id="learnExploreButton" type="button" aria-expanded="false" aria-controls="learningCards">📚 LEARN &amp; EXPLORE</button>
+  <button class="map-center" id="learnExploreButton" type="button" aria-expanded="false" aria-controls="learningCards"><span class="map-button-main">👆 TAP TO EXPLORE</span><span class="map-button-hint">See the subjects I teach • Click here</span></button>
   <div class="map-branches" id="learningCards" hidden>
     <div class="branch">📝 English<br><small>Reading, writing &amp; grammar</small></div>
     <div class="branch">🔬 Science<br><small>Diagrams &amp; concept maps</small></div>
@@ -347,7 +347,7 @@ learnExploreButton.addEventListener('click',()=>{
   const isExpanded=learnExploreButton.getAttribute('aria-expanded')==='true';
   learnExploreButton.setAttribute('aria-expanded',String(!isExpanded));
   learningCards.hidden=isExpanded;
-  learnExploreButton.innerHTML=isExpanded?'📚 LEARN &amp; EXPLORE':'📚 HIDE SUBJECTS';
+  learnExploreButton.innerHTML=isExpanded?'<span class="map-button-main">👆 TAP TO EXPLORE</span><span class="map-button-hint">See the subjects I teach • Click here</span>':'<span class="map-button-main">✕ HIDE SUBJECTS</span><span class="map-button-hint">Tap to close the subject cards</span>'; 
   if(!isExpanded) learningCards.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 const subjectTabs=[...document.querySelectorAll('.subject-tab')];
