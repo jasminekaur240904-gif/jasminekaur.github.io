@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasmine Kaur | Learning with Visuals</title>
+<style>
+:root{--red:#ef4444;--green:#22a06b;--yellow:#ffd43b;--blue:#3977d5;--ink:#253047;--cream:#fffdf5;--pink:#ffe4e6}
+*{box-sizing:border-box}
+body{margin:0;background:#fff8e7;color:var(--ink);font-family:"Trebuchet MS",Arial,sans-serif}
+.hero{background:linear-gradient(125deg,#ffdf55 0 35%,#ff7777 35% 68%,#69d5a2 68%);padding:34px 18px 28px;text-align:center;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"✦";position:absolute;font-size:50px;color:#fff;opacity:.7}.hero:before{left:8%;top:18px}.hero:after{right:9%;bottom:8px}
+.hero h1{font-size:clamp(32px,7vw,54px);margin:5px 0;color:#253047;letter-spacing:-1.5px}
+.hero p{font-size:17px;font-weight:700;margin:8px auto 18px;max-width:600px}
+.pill{display:inline-block;background:#fff;border:2px solid #253047;border-radius:30px;padding:8px 15px;font-weight:800;margin:4px}
+.wrap{max-width:980px;margin:auto;padding:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:4px auto 18px}
+.tab{border:0;border-radius:16px;padding:12px 16px;font-weight:900;font-size:15px;cursor:pointer;background:#fff;box-shadow:0 4px 0 #253047;color:#253047}
+.tab[aria-selected="true"]{background:var(--yellow);transform:translateY(2px);box-shadow:0 2px 0 #253047}
+.panel{display:none;background:#fff;border:3px solid #253047;border-radius:24px;padding:clamp(17px,4vw,30px);box-shadow:0 7px 0 #253047;min-height:360px}
+.panel.active{display:block}
+h2{font-size:clamp(25px,5vw,34px);margin:0 0 14px}
+h3{margin:8px 0;font-size:19px}
+.lead{font-size:18px;line-height:1.5;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px;margin:16px 0}
+.card{border:2px solid #253047;border-radius:18px;padding:16px;background:#fff8d8}
+.card.red{background:#ffe1e1}.card.green{background:#dcf8e9}.card.blue{background:#e4efff}.card.purple{background:#f0e5ff}
+.emoji{font-size:35px;display:block;margin-bottom:5px}
+.big{font-size:24px;font-weight:1000}
+.small{font-size:14px;line-height:1.45}
+.tag{display:inline-block;padding:5px 9px;border-radius:20px;background:#253047;color:white;font-size:12px;font-weight:900;margin:3px}
+.steps{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:20px 0}
+.step{background:#ffed9c;border:2px solid #253047;border-radius:14px;padding:12px;text-align:center;font-weight:900;min-width:105px}
+.arrow{font-size:25px;font-weight:900}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.time{border:3px solid #253047;border-radius:18px;padding:15px;text-align:center;min-height:150px}
+.time.past{background:#ffe1e1}.time.present{background:#dcf8e9}.time.future{background:#e4efff}
+.time .emoji{font-size:31px}
+.time strong{font-size:20px;display:block}
+.tense-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.tense-col{border:2px solid #253047;border-radius:15px;overflow:hidden}
+.tense-col h3{margin:0;padding:11px;text-align:center;color:#fff}
+.tense-col.past h3{background:#e34c4c}.tense-col.present h3{background:#168b59}.tense-col.future h3{background:#3977d5}
+.tense-item{padding:10px;border-top:1px solid #ddd;background:#fff;font-size:13px;line-height:1.4}
+.tense-item b{display:block;font-size:14px;margin-bottom:3px}
+.highlight{background:#fff0a8;border-radius:12px;padding:13px;font-weight:800;margin:14px 0}
+.footer{text-align:center;padding:24px 10px;font-size:13px;font-weight:700}
+button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
+@media(max-width:560px){.timeline{grid-template-columns:1fr}.time{min-height:unset}.tense-grid{grid-template-columns:1fr}.tense-item{font-size:14px}.tab{flex:1 1 40%;padding:11px 8px}}
+@media print{.tabs{display:none}.panel{display:block!important;page-break-after:always;box-shadow:none}.hero{background:#fff}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <span class="pill">CBSE • Classes 1–8</span>
+  <h1>Learning can be colourful!</h1>
+  <p>Clear concepts. Creative visuals. Confident learning.</p>
+  <span class="pill">👩‍🏫 Jasmine Kaur</span>
+  <span class="pill">📚 One-to-one tuition</span>
+</header>
+<main class="wrap">
+<nav class="tabs" role="tablist" aria-label="Portfolio sections">
+  <button class="tab" role="tab" aria-selected="true" data-tab="welcome">🌈 Welcome</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="approach">💡 My approach</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="subjects">📚 Subjects</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="sample">🚀 Tense time machine</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="support">🤝 Learning support</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="fees">☎️ Fees & contact</button>
+</nav>
+
+<section class="panel active" id="welcome" role="tabpanel">
+  <h2>Hi! Let's make learning click. 🌟</h2>
+  <p class="lead">I'm Jasmine Kaur, a B.Com graduate who believes every child can understand better when ideas are made simple, visual and meaningful.</p>
+  <div class="cards">
+    <div class="card red"><span class="emoji">👀</span><div class="big">See it</div><div class="small">Pictures, diagrams and colourful concept maps.</div></div>
+    <div class="card green"><span class="emoji">🧠</span><div class="big">Understand it</div><div class="small">Simple explanations and real-life connections.</div></div>
+    <div class="card blue"><span class="emoji">✍️</span><div class="big">Use it</div><div class="small">Practice, recall and regular revision.</div></div>
+  </div>
+  <div class="highlight">My goal: help students move from “I don't get it” to “I can explain it!”</div>
+  <p class="small">One-to-one CBSE tuition • Classes 1–8 • English and Hindi</p>
+</section>
+
+<section class="panel" id="approach" role="tabpanel">
+  <h2>My visual learning pathway 🎨</h2>
+  <p class="lead">Don't just read a concept. See how it works, connect the steps, then practise it.</p>
+  <div class="steps">
+    <div class="step"><span class="emoji">🔎</span>Discover</div><span class="arrow">➜</span>
+    <div class="step"><span class="emoji">🖼️</span>Visualise</div><span class="arrow">➜</span>
+    <div class="step"><span class="emoji">💬</span>Explain</div><span class="arrow">➜</span>
+    <div class="step"><span class="emoji">✏️</span>Practise</div><span class="arrow">➜</span>
+    <div class="step"><span class="emoji">🔁</span>Recall</div>
+  </div>
+  <div class="cards">
+    <div class="card red"><span class="emoji">🗺️</span><b>Mind maps</b><div class="small">See how ideas connect.</div></div>
+    <div class="card green"><span class="emoji">📊</span><b>Charts & diagrams</b><div class="small">Break big ideas into clear parts.</div></div>
+    <div class="card blue"><span class="emoji">🔀</span><b>Flowcharts</b><div class="small">Follow a process step by step.</div></div>
+    <div class="card purple"><span class="emoji">🌍</span><b>Everyday examples</b><div class="small">Connect lessons with real life.</div></div>
+  </div>
+</section>
+
+<section class="panel" id="subjects" role="tabpanel">
+  <h2>What we can learn together 📚</h2>
+  <div class="cards">
+    <div class="card red"><span class="tag">CLASSES 1–5</span><h3>🌱 Primary</h3><p class="small">English · Hindi · EVS</p><p class="small">Build strong basics with clear explanations, pictures and practice.</p></div>
+    <div class="card green"><span class="tag">CLASSES 6–8</span><h3>🚀 Middle school</h3><p class="small">English · Hindi · Science · Social Science</p><p class="small">Understand concepts, organise information and revise with visual notes.</p></div>
+  </div>
+  <div class="highlight">Learning language: English & Hindi</div>
+  <p class="small">CBSE curriculum • Individual attention • One-to-one sessions</p>
+</section>
+
+<section class="panel" id="sample" role="tabpanel">
+  <h2>Sample visual notes: The Tense Time Machine 🚀</h2>
+  <p class="lead">One action. Three time zones. Four ways to describe it.</p>
+  <div class="timeline">
+    <div class="time past"><span class="emoji">⏪</span><strong>PAST</strong><span>Before now</span><p class="small">I played yesterday.</p></div>
+    <div class="time present"><span class="emoji">⏺️</span><strong>PRESENT</strong><span>Now / regularly</span><p class="small">I play every day.</p></div>
+    <div class="time future"><span class="emoji">⏩</span><strong>FUTURE</strong><span>After now</span><p class="small">I will play tomorrow.</p></div>
+  </div>
+  <div class="highlight">STEP 1 · Choose WHEN the action happens</div>
+  <div class="steps">
+    <div class="step"><span class="emoji">⏪</span>Past</div><span class="arrow">➜</span>
+    <div class="step"><span class="emoji">⏺️</span>Present</div><span class="arrow">➜</span>
+    <div class="step"><span class="emoji">⏩</span>Future</div>
+  </div>
+  <div class="highlight">STEP 2 · Choose HOW the action happens</div>
+  <div class="cards">
+    <div class="card red"><span class="emoji">⭐</span><b>SIMPLE</b><div class="small">Habit, fact or action</div><span class="tag">I play.</span></div>
+    <div class="card green"><span class="emoji">🏃</span><b>CONTINUOUS</b><div class="small">Action in progress</div><span class="tag">I am playing.</span></div>
+    <div class="card blue"><span class="emoji">✅</span><b>PERFECT</b><div class="small">Completed by a reference time</div><span class="tag">I have played.</span></div>
+    <div class="card purple"><span class="emoji">⏳</span><b>PERFECT CONTINUOUS</b><div class="small">Duration up to a reference time</div><span class="tag">I have been playing.</span></div>
+  </div>
+  <div class="highlight">STEP 3 · Put the time + pattern together</div>
+  <div class="tense-grid">
+    <div class="tense-col past"><h3>⏪ PAST</h3>
+      <div class="tense-item"><b>⭐ Simple</b>I played.</div>
+      <div class="tense-item"><b>🏃 Continuous</b>I was playing.</div>
+      <div class="tense-item"><b>✅ Perfect</b>I had played.</div>
+      <div class="tense-item"><b>⏳ Perfect Continuous</b>I had been playing.</div>
+    </div>
+    <div class="tense-col present"><h3>⏺️ PRESENT</h3>
+      <div class="tense-item"><b>⭐ Simple</b>I play.</div>
+      <div class="tense-item"><b>🏃 Continuous</b>I am playing.</div>
+      <div class="tense-item"><b>✅ Perfect</b>I have played.</div>
+      <div class="tense-item"><b>⏳ Perfect Continuous</b>I have been playing.</div>
+    </div>
+    <div class="tense-col future"><h3>⏩ FUTURE</h3>
+      <div class="tense-item"><b>⭐ Simple</b>I will play.</div>
+      <div class="tense-item"><b>🏃 Continuous</b>I will be playing.</div>
+      <div class="tense-item"><b>✅ Perfect</b>I will have played.</div>
+      <div class="tense-item"><b>⏳ Perfect Continuous</b>I will have been playing.</div>
+    </div>
+  </div>
+  <div class="highlight">REMEMBER THE ROUTE</div>
+  <div class="steps">
+    <div class="step">🕒 WHEN?</div><span class="arrow">➜</span>
+    <div class="step">⚙️ HOW?</div><span class="arrow">➜</span>
+    <div class="step">💬 SENTENCE!</div>
+  </div>
+  <p class="small">A visual shortcut for learning: identify the time, choose the action pattern, then build the sentence.</p>
+</section>
+
+<section class="panel" id="support" role="tabpanel">
+  <h2>Every learner needs a different kind of support 💛</h2>
+  <div class="cards">
+    <div class="card red"><span class="emoji">😕</span><b>“This feels confusing.”</b><p class="small">We break the topic into small, visual steps.</p></div>
+    <div class="card green"><span class="emoji">📖</span><b>“I forget what I studied.”</b><p class="small">We use recap charts, active recall and revision.</p></div>
+    <div class="card blue"><span class="emoji">🙋</span><b>“I'm afraid to ask.”</b><p class="small">A supportive one-to-one space to ask and learn.</p></div>
+    <div class="card purple"><span class="emoji">🧩</span><b>“I need more practice.”</b><p class="small">Guided examples followed by independent practice.</p></div>
+  </div>
+</section>
+
+<section class="panel" id="fees" role="tabpanel">
+  <h2>Ready to make learning fun? 🌈</h2>
+  <p class="lead">Big ideas can start with one little step. Let's make that step together!</p>
+  <div class="cards">
+    <div class="card red"><span class="tag">CLASSES 1–5</span><div class="big">₹150<span style="font-size:15px">/hour</span></div><b>Starting at</b></div>
+    <div class="card green"><span class="tag">CLASSES 6–8</span><div class="big">₹200<span style="font-size:15px">/hour</span></div><b>Starting at</b></div>
+  </div>
+  <div class="highlight">✨ Give your child a brighter, more joyful way to learn. Let's get started!</div>
+  <div class="highlight">📱 Call / WhatsApp: +91 __________________</div>
+  <p class="small">Add your contact number before sharing this portfolio.</p>
+</section>
+<div class="footer">🌈 See it • Understand it • Remember it • Use it 🌈<br>Jasmine Kaur | CBSE One-to-one Tuition</div>
+</main>
+<script>
+const tabs=[...document.querySelectorAll('.tab')];
+const panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  tabs.forEach(t=>t.setAttribute('aria-selected',String(t===tab)));
+  panels.forEach(p=>p.classList.toggle('active',p.id===tab.dataset.tab));
+  document.getElementById(tab.dataset.tab).scrollIntoView({behavior:'smooth',block:'start'});
+}));
+</script>
+</body>
+</html>
