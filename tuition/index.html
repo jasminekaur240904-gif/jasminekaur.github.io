@@ -341,15 +341,6 @@ tabs.forEach(tab=>tab.addEventListener('click',()=>{
   panels.forEach(p=>p.classList.toggle('active',p.id===tab.dataset.tab));
   document.getElementById(tab.dataset.tab).scrollIntoView({behavior:'smooth',block:'start'});
 }));
-const learnExploreButton=document.getElementById('learnExploreButton');
-const learningCards=document.getElementById('learningCards');
-learnExploreButton.addEventListener('click',()=>{
-  const isExpanded=learnExploreButton.getAttribute('aria-expanded')==='true';
-  learnExploreButton.setAttribute('aria-expanded',String(!isExpanded));
-  learningCards.hidden=isExpanded;
-  learnExploreButton.textContent=isExpanded?'📚 EXPLORE MORE':'✕ SHOW LESS'; 
-  if(!isExpanded) learningCards.scrollIntoView({behavior:'smooth',block:'nearest'});
-});
 const subjectTabs=[...document.querySelectorAll('.subject-tab')];
 const subjectPanels=[...document.querySelectorAll('.subject-panel')];
 subjectTabs.forEach(tab=>tab.addEventListener('click',()=>{
