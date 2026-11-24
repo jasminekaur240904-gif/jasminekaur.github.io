@@ -70,6 +70,14 @@ h3{margin:8px 0;font-size:19px}
 button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
 @media(max-width:560px){.timeline{grid-template-columns:1fr}.time{min-height:unset}.tense-grid{grid-template-columns:1fr}.tense-item{font-size:14px}.tab{flex:1 1 40%;padding:11px 8px}}
 @media print{.tabs{display:none}.panel{display:block!important;page-break-after:always;box-shadow:none}.hero{background:#fff}}
+
+.subject-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 20px;justify-content:flex-start}
+.subject-tab{flex:1 1 210px;border:2px solid #253047;border-radius:16px;padding:14px 16px;font-size:16px;font-weight:900;cursor:pointer;background:#f3f6ff;color:#253047;box-shadow:0 4px 0 #253047}
+.subject-tab[aria-selected="true"]{background:#ffdf55;transform:translateY(2px);box-shadow:0 2px 0 #253047}
+.subject-panel{display:none}
+.subject-panel.active{display:block}
+.subject-panel>h2:first-child{margin-top:4px}
+@media(max-width:560px){.subject-tab{flex-basis:100%}}
 </style>
 </head>
 <body>
@@ -87,8 +95,8 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
   <button class="tab" role="tab" aria-selected="false" data-tab="approach">💡 My approach</button>
   <button class="tab" role="tab" aria-selected="false" data-tab="subjects">📚 School Subjects</button>
   <button class="tab" role="tab" aria-selected="false" data-tab="business">📈 Business Studies</button>
-  <button class="tab" role="tab" aria-selected="false" data-tab="bst-notes">🗂️ BST Sample Notes</button>
-  <button class="tab" role="tab" aria-selected="false" data-tab="sample">🚀 Tense time machine</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="simple-notes">🗂️ Simple Notes</button>
+  
   <button class="tab" role="tab" aria-selected="false" data-tab="support">🤝 Learning support</button>
   <button class="tab" role="tab" aria-selected="false" data-tab="fees">☎️ Fees & contact</button>
 </nav>
@@ -175,7 +183,15 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
   <p class="small">One-to-one tuition • English and Hindi explanations</p>
 </section>
 
-<section class="panel" id="bst-notes" role="tabpanel">
+<section class="panel" id="simple-notes" role="tabpanel">
+  <h2>Simple Notes Collection 🗂️</h2>
+  <p class="lead">Choose a subject to explore clear, visual notes and quick concept explanations.</p>
+  <div class="subject-tabs" role="tablist" aria-label="Simple notes subjects">
+    <button class="subject-tab" type="button" role="tab" aria-selected="true" data-subject="business-notes">📈 Business Studies</button>
+    <button class="subject-tab" type="button" role="tab" aria-selected="false" data-subject="english-notes">🔤 English</button>
+  </div>
+  <div class="subject-panel active" id="business-notes" role="tabpanel">
+
   <h2>Business Studies | Sample Visual Notes 🗂️</h2>
   <p class="lead">A separate preview of how Business Studies topics can be organised into clear, easy-to-revise visuals.</p>
   <div class="card blue">
@@ -212,9 +228,10 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     </div>
   </div>
   <div class="highlight">Visual notes are designed to support understanding and revision alongside the prescribed textbook and classroom practice.</div>
-</section>
 
-<section class="panel" id="sample" role="tabpanel">
+  </div>
+  <div class="subject-panel" id="english-notes" role="tabpanel">
+
   <h2>Sample visual notes: The Tense Time Machine 🚀</h2>
   <p class="lead">One action. Three time zones. Four ways to describe it.</p>
   <div class="timeline">
@@ -263,7 +280,11 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     <div class="step">💬 SENTENCE!</div>
   </div>
   <p class="small">A visual shortcut for learning: identify the time, choose the action pattern, then build the sentence.</p>
+
+  </div>
 </section>
+
+
 
 <section class="panel" id="support" role="tabpanel">
   <h2>Every learner needs a different kind of support 💛</h2>
@@ -302,6 +323,12 @@ tabs.forEach(tab=>tab.addEventListener('click',()=>{
   tabs.forEach(t=>t.setAttribute('aria-selected',String(t===tab)));
   panels.forEach(p=>p.classList.toggle('active',p.id===tab.dataset.tab));
   document.getElementById(tab.dataset.tab).scrollIntoView({behavior:'smooth',block:'start'});
+}));
+const subjectTabs=[...document.querySelectorAll('.subject-tab')];
+const subjectPanels=[...document.querySelectorAll('.subject-panel')];
+subjectTabs.forEach(tab=>tab.addEventListener('click',()=>{
+  subjectTabs.forEach(t=>t.setAttribute('aria-selected',String(t===tab)));
+  subjectPanels.forEach(p=>p.classList.toggle('active',p.id===tab.dataset.subject));
 }));
 </script>
 </body>
