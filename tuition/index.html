@@ -50,7 +50,7 @@ h3{margin:8px 0;font-size:19px}
 .flow-node span{font-size:30px}
 .flow-arrow{font-size:25px;font-weight:1000;text-align:center}
 .map-center{display:block;width:100%;background:#253047;color:white;border:0;border-radius:20px;padding:16px;text-align:center;font-weight:1000;font-size:17px;margin:16px auto;max-width:260px;cursor:pointer;box-shadow:0 5px 0 #172033}.map-center:active{transform:translateY(2px);box-shadow:0 3px 0 #172033}.map-branches[hidden]{display:none!important}
-.map-branches{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.map-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .branch{border:2px solid #253047;border-radius:15px;padding:12px;text-align:center;font-weight:900;background:#fff8d8;min-width:0;overflow-wrap:anywhere;line-height:1.35}.branch small{display:block;margin-top:5px;font-size:13px;line-height:1.4}
 .branch:nth-child(2){background:#ffe1e1}.branch:nth-child(3){background:#dcf8e9}.branch:nth-child(4){background:#e4efff}
 .mini-chart{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:16px 0}
@@ -79,11 +79,6 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
 .subject-panel>h2:first-child{margin-top:4px}
 @media(max-width:560px){.subject-tab{flex-basis:100%}}
 
-/* Clear, compact clickable subject prompt */
-.map-center{display:block!important;width:min(100%,260px)!important;margin:18px auto!important;padding:17px 22px!important;background:linear-gradient(135deg,#7c3aed,#2563eb)!important;color:#fff!important;border:3px solid #253047!important;border-radius:18px!important;text-align:center!important;font-family:inherit!important;font-size:21px!important;font-weight:900!important;line-height:1.25!important;letter-spacing:1px!important;white-space:normal!important;cursor:pointer!important;box-shadow:0 6px 0 #172033!important}
-.map-center .map-button-main{display:block!important;font-size:21px!important;font-weight:900!important;line-height:1.25!important}
-.map-center:active{transform:translateY(3px);box-shadow:0 3px 0 #172033!important}
-.map-branches[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -170,7 +165,7 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     </div>
   </div>
   <h3>Different subjects. Clear ways to learn.</h3>
-  <button class="map-center" id="learnExploreButton" type="button" aria-expanded="false" aria-controls="learningCards"><span class="map-button-main">👇 CLICK HERE</span></button>
+  <button class="map-center" id="learnExploreButton" type="button" aria-expanded="false" aria-controls="learningCards">📚 EXPLORE MORE</button>
   <div class="map-branches" id="learningCards" hidden>
     <div class="branch">📝 English<br><small>Reading, writing &amp; grammar</small></div>
     <div class="branch">🔬 Science<br><small>Diagrams &amp; concept maps</small></div>
@@ -353,7 +348,7 @@ learnExploreButton.addEventListener('click',()=>{
   const isExpanded=learnExploreButton.getAttribute('aria-expanded')==='true';
   learnExploreButton.setAttribute('aria-expanded',String(!isExpanded));
   learningCards.hidden=isExpanded;
-  learnExploreButton.innerHTML=isExpanded?'<span class="map-button-main">👇 CLICK HERE</span>':'<span class="map-button-main">✕ CLOSE</span>'; 
+  learnExploreButton.textContent=isExpanded?'📚 EXPLORE MORE':'✕ SHOW LESS'; 
   if(!isExpanded) learningCards.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
 const subjectTabs=[...document.querySelectorAll('.subject-tab')];
