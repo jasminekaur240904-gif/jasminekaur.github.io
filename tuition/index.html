@@ -44,6 +44,20 @@ h3{margin:8px 0;font-size:19px}
 .tense-item{padding:10px;border-top:1px solid #ddd;background:#fff;font-size:13px;line-height:1.4}
 .tense-item b{display:block;font-size:14px;margin-bottom:3px}
 .highlight{background:#fff0a8;border-radius:12px;padding:13px;font-weight:800;margin:14px 0}
+.flow-map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:9px;margin:20px 0}
+.flow-node{border:2px solid #253047;border-radius:17px;padding:15px 9px;text-align:center;background:#fff8d8;font-weight:900;min-height:112px;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.flow-node:nth-of-type(3){background:#dcf8e9}.flow-node:nth-of-type(5){background:#e4efff}
+.flow-node span{font-size:30px}
+.flow-arrow{font-size:25px;font-weight:1000;text-align:center}
+.map-center{background:#253047;color:white;border-radius:20px;padding:16px;text-align:center;font-weight:1000;margin:16px auto;max-width:220px}
+.map-branches{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.branch{border:2px solid #253047;border-radius:15px;padding:12px;text-align:center;font-weight:900;background:#fff8d8}
+.branch:nth-child(2){background:#ffe1e1}.branch:nth-child(3){background:#dcf8e9}.branch:nth-child(4){background:#e4efff}
+.mini-chart{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:16px 0}
+.chart-step{border-radius:12px;padding:11px 7px;text-align:center;background:#f0e5ff;border:2px solid #253047;font-weight:900;font-size:13px}
+.chart-step:nth-child(2){background:#ffe1e1}.chart-step:nth-child(3){background:#dcf8e9}.chart-step:nth-child(4){background:#e4efff}
+.contact-link{display:inline-block;background:#168b59;color:#fff;text-decoration:none;font-weight:1000;padding:14px 20px;border:2px solid #253047;border-radius:14px;box-shadow:0 4px 0 #253047;margin:6px}
+.contact-link:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
 .footer{text-align:center;padding:24px 10px;font-size:13px;font-weight:700}
 button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
 @media(max-width:560px){.timeline{grid-template-columns:1fr}.time{min-height:unset}.tense-grid{grid-template-columns:1fr}.tense-item{font-size:14px}.tab{flex:1 1 40%;padding:11px 8px}}
@@ -90,6 +104,15 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     <div class="step"><span class="emoji">✏️</span>Practise</div><span class="arrow">➜</span>
     <div class="step"><span class="emoji">🔁</span>Recall</div>
   </div>
+  <h3>One lesson, one clear journey</h3>
+  <div class="flow-map" aria-label="Learning journey">
+    <div class="flow-node"><span>🔍</span>Explore<br><small>What do I know?</small></div><div class="flow-arrow">➜</div>
+    <div class="flow-node"><span>🧠</span>Connect<br><small>How does it fit?</small></div><div class="flow-arrow">➜</div>
+    <div class="flow-node"><span>🎯</span>Apply<br><small>Can I use it?</small></div>
+  </div>
+  <div class="mini-chart">
+    <div class="chart-step">1. Learn</div><div class="chart-step">2. Explain</div><div class="chart-step">3. Practise</div><div class="chart-step">4. Recall</div>
+  </div>
   <div class="cards">
     <div class="card red"><span class="emoji">🗺️</span><b>Mind maps</b><div class="small">See how ideas connect.</div></div>
     <div class="card green"><span class="emoji">📊</span><b>Charts & diagrams</b><div class="small">Break big ideas into clear parts.</div></div>
@@ -103,6 +126,14 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
   <div class="cards">
     <div class="card red"><span class="tag">CLASSES 1–5</span><h3>🌱 Primary</h3><p class="small">English · Hindi · EVS</p><p class="small">Build strong basics with clear explanations, pictures and practice.</p></div>
     <div class="card green"><span class="tag">CLASSES 6–8</span><h3>🚀 Middle school</h3><p class="small">English · Hindi · Science · Social Science</p><p class="small">Understand concepts, organise information and revise with visual notes.</p></div>
+  </div>
+  <h3>Subject map: what each lesson can look like</h3>
+  <div class="map-center">📚 A NEW TOPIC</div>
+  <div class="map-branches">
+    <div class="branch">📝 English<br><small>Word webs & grammar trees</small></div>
+    <div class="branch">🔬 Science<br><small>Diagrams & process flows</small></div>
+    <div class="branch">🌏 SST<br><small>Timelines & concept maps</small></div>
+    <div class="branch">🌿 EVS<br><small>Picture maps & sorting charts</small></div>
   </div>
   <div class="highlight">Learning language: English & Hindi</div>
   <p class="small">CBSE curriculum • Individual attention • One-to-one sessions</p>
@@ -177,8 +208,9 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     <div class="card green"><span class="tag">CLASSES 6–8</span><div class="big">₹200<span style="font-size:15px">/hour</span></div><b>Starting at</b></div>
   </div>
   <div class="highlight">✨ Give your child a brighter, more joyful way to learn. Let's get started!</div>
-  <div class="highlight">📱 Call / WhatsApp: +91 __________________</div>
-  <p class="small">Add your contact number before sharing this portfolio.</p>
+  <div class="highlight">📱 Let's talk about your child's learning journey.</div>
+  <a class="contact-link" href="tel:+918882108176">☎️ Call: 8882108176</a>
+  <a class="contact-link" href="https://wa.me/918882108176" target="_blank" rel="noopener">💬 WhatsApp: 8882108176</a>
 </section>
 <div class="footer">🌈 See it • Understand it • Remember it • Use it 🌈<br>Jasmine Kaur | CBSE One-to-one Tuition</div>
 </main>
