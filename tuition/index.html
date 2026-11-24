@@ -49,9 +49,9 @@ h3{margin:8px 0;font-size:19px}
 .flow-node:nth-of-type(3){background:#dcf8e9}.flow-node:nth-of-type(5){background:#e4efff}
 .flow-node span{font-size:30px}
 .flow-arrow{font-size:25px;font-weight:1000;text-align:center}
-.map-center{background:#253047;color:white;border-radius:20px;padding:16px;text-align:center;font-weight:1000;margin:16px auto;max-width:220px}
+.map-center{display:block;width:100%;background:#253047;color:white;border:0;border-radius:20px;padding:16px;text-align:center;font-weight:1000;font-size:17px;margin:16px auto;max-width:260px;cursor:pointer;box-shadow:0 5px 0 #172033}.map-center:active{transform:translateY(2px);box-shadow:0 3px 0 #172033}.map-branches[hidden]{display:none!important}
 .map-branches{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.branch{border:2px solid #253047;border-radius:15px;padding:12px;text-align:center;font-weight:900;background:#fff8d8}
+.branch{border:2px solid #253047;border-radius:15px;padding:12px;text-align:center;font-weight:900;background:#fff8d8;min-width:0;overflow-wrap:anywhere;line-height:1.35}.branch small{display:block;margin-top:5px;font-size:13px;line-height:1.4}
 .branch:nth-child(2){background:#ffe1e1}.branch:nth-child(3){background:#dcf8e9}.branch:nth-child(4){background:#e4efff}
 .mini-chart{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:16px 0}
 .chart-step{border-radius:12px;padding:11px 7px;text-align:center;background:#f0e5ff;border:2px solid #253047;font-weight:900;font-size:13px}
@@ -68,7 +68,7 @@ h3{margin:8px 0;font-size:19px}
 @media(max-width:650px){.bst-process{grid-template-columns:1fr}.bst-step{display:grid;grid-template-columns:38px 1fr;align-items:center;text-align:left}.bst-step span{grid-row:span 2}.bst-step small{grid-column:2}.bst-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .footer{text-align:center;padding:24px 10px;font-size:13px;font-weight:700}
 button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
-@media(max-width:560px){.timeline{grid-template-columns:1fr}.time{min-height:unset}.tense-grid{grid-template-columns:1fr}.tense-item{font-size:14px}.tab{flex:1 1 40%;padding:11px 8px}}
+@media(max-width:560px){.map-branches{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.branch{padding:12px 8px;font-size:15px}.branch small{font-size:12px}.timeline{grid-template-columns:1fr}.time{min-height:unset}.tense-grid{grid-template-columns:1fr}.tense-item{font-size:14px}.tab{flex:1 1 40%;padding:11px 8px}}
 @media print{.tabs{display:none}.panel{display:block!important;page-break-after:always;box-shadow:none}.hero{background:#fff}}
 
 .subject-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 20px;justify-content:flex-start}
@@ -164,8 +164,8 @@ button:focus-visible{outline:4px solid #3977d5;outline-offset:3px}
     </div>
   </div>
   <h3>Different subjects. Clear ways to learn.</h3>
-  <div class="map-center">📚 LEARN &amp; EXPLORE</div>
-  <div class="map-branches">
+  <button class="map-center" id="learnExploreButton" type="button" aria-expanded="false" aria-controls="learningCards">📚 LEARN &amp; EXPLORE</button>
+  <div class="map-branches" id="learningCards" hidden>
     <div class="branch">📝 English<br><small>Reading, writing &amp; grammar</small></div>
     <div class="branch">🔬 Science<br><small>Diagrams &amp; concept maps</small></div>
     <div class="branch">🌏 Social Science<br><small>Timelines &amp; visual summaries</small></div>
@@ -341,6 +341,15 @@ tabs.forEach(tab=>tab.addEventListener('click',()=>{
   panels.forEach(p=>p.classList.toggle('active',p.id===tab.dataset.tab));
   document.getElementById(tab.dataset.tab).scrollIntoView({behavior:'smooth',block:'start'});
 }));
+const learnExploreButton=document.getElementById('learnExploreButton');
+const learningCards=document.getElementById('learningCards');
+learnExploreButton.addEventListener('click',()=>{
+  const isExpanded=learnExploreButton.getAttribute('aria-expanded')==='true';
+  learnExploreButton.setAttribute('aria-expanded',String(!isExpanded));
+  learningCards.hidden=isExpanded;
+  learnExploreButton.innerHTML=isExpanded?'📚 LEARN &amp; EXPLORE':'📚 HIDE SUBJECTS';
+  if(!isExpanded) learningCards.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
 const subjectTabs=[...document.querySelectorAll('.subject-tab')];
 const subjectPanels=[...document.querySelectorAll('.subject-panel')];
 subjectTabs.forEach(tab=>tab.addEventListener('click',()=>{
